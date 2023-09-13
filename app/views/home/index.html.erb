@@ -1,0 +1,26 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary", id="mainmodalbutton" ,data-toggle="modal" data-target="#exampleModal">
+  Sign Up
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+    <div class="caret"></div>
+
+      <div class="modal-head">
+        <h5 class="modal-title" id="exampleModalLabel">Let's get you started!</h5>
+      </div>
+      <div class="modal-body ">
+        <div class=" ">
+          <div>
+            <%= render partial: 'home/form', locals: { resource: @resource, resource_name: :user } %>
+          <div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
