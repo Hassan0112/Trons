@@ -47,7 +47,8 @@
             <%= f.submit ('Sign Up'), class: 'btn btn-primary ' %>
           </div>
           <div class="para">
-            <span> Already have an account? </span><span class="singin"><%= link_to'Sign in', new_user_session_path %> </span>
+            <span> Already have an account? </span>
+            <a href="#signInModal" class="singin" id="signIn-link" data-toggle="modal" data-target="#signInModal">Sign in</a>
           </div>
             <p class="small label-name text-center text-muted mt-3">By continuing you agree to our <br><a class="text-muted", href="#">Terms &amp; Conditions</a>, and <a class="text-muted", href="#">Privacy Policy</a>.</p>
         <% end %>

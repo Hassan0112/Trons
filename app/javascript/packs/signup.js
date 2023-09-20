@@ -1,10 +1,10 @@
 $(document).ready(function(){
-    $('#mainmodalbutton').click(function(){
-        window.$('#exampleModal').modal('show')
+    $('#Sign-up-modal').click(function(){
+        window.$('#signUpModal').modal('show')
     });
 
     $('.pharlo').click(function(){
-        window.$('#exampleModal').modal('hide')
+        window.$('#signUpModal').modal('hide')
 
     });
 });

@@ -1,0 +1,32 @@
+  <% resource_name = :user %>
+<div class="sigin-form ">
+  <div class="row sign-body">
+    <div class="col-10 ">
+      <%= form_for(@resource, as: resource_name, url: new_user_session_path(resource_name)) do |f| %>
+        <div class="form-group">
+          <div class="form-line">
+            <%= f.label :Email, class:'signin-label' %>
+            <%= f.email_field :email, placeholder: 'username@email.com', autofocus: true, autocomplete: 'email', class: 'form-control border-0' %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="form-line">
+            <%= f.label :password, class:'signin-label' %>
+            <%= f.password_field :password, placeholder: 'write your password', autocomplete: 'current-password', class: 'form-control border-0' %>
+          </div>
+        </div>
+        <div class="forget-link">
+          <%= render 'devise/shared/links' %>
+        </div>
+        <div class="form-group button-sign">
+          <%= f.submit ('Sign In'), class:'btn btn-primary' %>
+        </div>
+        <div>
+          <span class="sign-para"> Don't have an account yet? </span><span><%= link_to 'Sign Up', new_user_registration_path, class:'signup-link' %></span>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>  
+

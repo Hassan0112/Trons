@@ -15,24 +15,21 @@
  *= require_self
  */
 
- .form-group .form-line {
-    margin-bottom: 1.5rem;
-    // position: relative;
-    border-bottom: 2px solid #ddd;
+.form-group .form-line {
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid #ddd;
 }
 .modal-title{
   padding-left: 3rem;
 font-size: 2rem;
 }
-
 .form-control{
   padding-left: 0;
 }
-
 .card{
-    border-radius: 5px;
-    background: #fff;
-    min-height: 70px;
+  border-radius: 5px;
+  background: #fff;
+  min-height: 70px;
 }
 .signup-form{
   width: 700px;
@@ -53,13 +50,6 @@ font-size: 2rem;
 .label-name{
   font-family: 'Your Custom Font', sans-serif;
 }
-.singin{
-  font-weight:bold ;
-}
-/* Use a more specific selector to set the color to black */
-span.singin a {
-  color: black;
-}
 .modal-head{
   font-size: 2rem;
   margin-top: 2rem;
@@ -67,19 +57,23 @@ span.singin a {
 /* Custom CSS to center-align the form within the modal */
 .center-form {
   display: inline-block;
-  text-align: left; /* Adjust as needed for your form layout */
+  text-align: left;
 }
 .modal-body {
   margin-left: 1.5rem;
 }
-
 .caret {
   margin-top: 1rem;
   margin-left: 1rem;
   width: 0;
   height: 0;
-  border-left: 8px solid transparent; /* Adjust the size as needed */
-  border-right: 8px solid transparent; /* Adjust the size as needed */
-  border-bottom: 20px solid; /* Adjust the size and color as needed */
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 20px solid;
   transform: rotate(-90deg);
+}
+#signin-link {
+  cursor: pointer;
+  color: black;
+  text-decoration: underline;
 }

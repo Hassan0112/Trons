@@ -1,16 +1,30 @@
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary", id="mainmodalbutton" ,data-toggle="modal" data-target="#exampleModal">
+<%= link_to 'Logout', logout_path, class:'btn btn-small', method: :get %>
+
+<button type="button" class="btn btn-primary", id="Sign-up-modal" ,data-toggle="modal" data-target="#signUpModal">
   Sign Up
 </button>
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="signInModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content sign-content">
+      <div class="caret-sigin"></div>
+      <div class="modal-head">
+        <h5 class="modal-titl" id="exampleModalLabel2">Enter Your Email</h5>
+      </div>
+      <div class="modal-body">
+        <%= render 'devise/sessions/signin',locals: { resource: @resource, resource_name: :user } %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="SignUpModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-    <div class="caret"></div>
+      <div class="caret"></div>
 
       <div class="modal-head">
-        <h5 class="modal-title" id="exampleModalLabel">Let's get you started!</h5>
+        <h5 class="modal-title" id="exampleModalLabel1">Let's get you started!</h5>
       </div>
       <div class="modal-body ">
         <div class=" ">
@@ -18,9 +32,10 @@
             <%= render partial: 'home/form', locals: { resource: @resource, resource_name: :user } %>
           <div>
         </div>
-      </div>
-      
+      </div> 
     </div>
   </div>
 </div>
+
+
 
