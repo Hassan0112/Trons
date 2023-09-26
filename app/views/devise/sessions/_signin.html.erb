@@ -1,19 +1,19 @@
   <% resource_name = :user %>
-<div class="sigin-form ">
+  <div class="sigin-form ">
   <div class="row sign-body">
     <div class="col-10 ">
-      <%= form_for(@resource, as: resource_name, url: new_user_session_path(resource_name)) do |f| %>
+      <%= form_for(@resource || resource, as: resource_name, url: new_user_session_path(resource_name), html: { id: 'sign_in_form' }) do |f| %>
         <div class="form-group">
           <div class="form-line">
             <%= f.label :Email, class:'signin-label' %>
-            <%= f.email_field :email, placeholder: 'username@email.com', autofocus: true, autocomplete: 'email', class: 'form-control border-0' %>
+            <%= f.email_field :email, placeholder: 'username@email.com', autofocus: true, autocomplete: 'email', class: 'form-control border-0', id:'signin-em' %>
           </div>
         </div>
 
         <div class="form-group">
           <div class="form-line">
             <%= f.label :password, class:'signin-label' %>
-            <%= f.password_field :password, placeholder: 'write your password', autocomplete: 'current-password', class: 'form-control border-0' %>
+            <%= f.password_field :password, placeholder: 'write your password', autocomplete: 'current-password', class: 'form-control border-0', id:'signin-pass' %>
           </div>
         </div>
         <div class="forget-link">
