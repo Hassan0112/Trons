@@ -37,15 +37,19 @@ font-size: 2rem;
   padding: 30px 0;
 }
 .btn{
+  font-family: sans-serif;
   font-size: 20px;
   font-weight: bold;
-  border-radius: 4px;
   border: none;
   min-width: 400px;
-} 
+}
 .para{
   text-align: center;
   font-family: 'Your Custom Font', sans-serif;
+}
+.para-text{
+  font-weight: 600;
+  font-family: sans-serif;
 }
 .label-name{
   font-family: 'Your Custom Font', sans-serif;
@@ -76,4 +80,8 @@ font-size: 2rem;
   cursor: pointer;
   color: black;
   text-decoration: underline;
+}
+.form-check-label{
+  font-family: sans-serif;
+  font-weight: 550;
 }

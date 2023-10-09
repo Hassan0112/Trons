@@ -3,6 +3,6 @@
 
 <div class="form-group">
   <% if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-    <%= link_to ("Forgot_Password?"), new_password_path(resource_name), class:'forget-color' %><br />
+    <a href="#forgotModal" class="forget-color" id="forgot-link-modal" data-toggle="modal" data-target="#forgotModal">Forgot Password?</a><br />
   <% end -%>
 </div>

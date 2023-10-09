@@ -1,8 +1,22 @@
 <%= link_to 'Logout', logout_path, class:'btn btn-small', method: :get %>
-
 <button type="button" class="btn btn-primary", id="Sign-up-modal" ,data-toggle="modal" data-target="#signUpModal">
   Sign Up
 </button>
+
+<!-- Modal -->
+<div class="modal fade" id="forgotModal"  data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="caret-forgot"></div>
+      <div class="modal-head-forgot">
+        <h5 class="modal-title-forgot" id="staticBackdropLabel"></h5>
+      </div>
+      <div class="modal-body forgot-modal">
+        <%= render partial: 'devise/passwords/password', locals: { resource: @resource, resource_name: @resource_name } %>
+      </div>
+    </div>
+  </div>
+</div>
 
 <div class="modal fade" id="signInModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
@@ -12,7 +26,7 @@
         <h5 class="modal-titl" id="exampleModalLabel2">Enter Your Email</h5>
       </div>
       <div class="modal-body">
-        <%= render 'devise/sessions/signin',locals: { resource: @resource, resource_name: :user } %>
+        <%= render 'devise/sessions/signin', locals: { resource: @resource, resource_name: :user } %>
       </div>
     </div>
   </div>
@@ -29,13 +43,10 @@
       <div class="modal-body ">
         <div class=" ">
           <div>
-            <%= render partial: 'home/form', locals: { resource: @resource, resource_name: :user } %>
+            <%= render partial: 'devise/registrations/form', locals: { resource: @resource, resource_name: :user } %>
           <div>
         </div>
       </div> 
     </div>
   </div>
 </div>
-
-
-
