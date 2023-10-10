@@ -1,16 +1,8 @@
-// This file is automatically compiled by Webpack, along with any other files
-// present in this directory. You're encouraged to place your actual application logic in
-// a relevant structure within app/javascript and only use these pack files to reference
-// that code so it'll be compiled.
-
 import 'jquery';
-import 'bootstrap'
-import Rails from "@rails/ujs"
-import Turbolinks from "turbolinks"
-import * as ActiveStorage from "@rails/activestorage"
-import "channels"
-import 'bootstrap/dist/js/bootstrap'
-
-Rails.start()
-Turbolinks.start()
-ActiveStorage.start()
+import 'popper.js';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import './sign_up';
+import './sign_in';
+import './forgot_password';
+import './navbar_sign_in.js';
+import './navbar_sign_up.js';

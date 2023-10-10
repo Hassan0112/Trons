@@ -1,5 +1,5 @@
-  <% resource_name = :user %>
-  <div class="sigin-form ">
+<% resource_name = :user %>
+<div class="sigin-form ">
   <div class="row sign-body">
     <div class="col-10 ">
       <%= form_for(@resource || resource, as: resource_name, url: new_user_session_path(resource_name), html: { id: 'sign_in_form' }) do |f| %>
