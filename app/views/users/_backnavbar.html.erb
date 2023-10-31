@@ -1,4 +1,4 @@
-<section class="background-image">
+<div class="edit-navbar">
   <div class="header mini-nav">
     <nav class="navbar">
       <div class="container-fluid">
@@ -6,7 +6,7 @@
         <ul class="navbar-nav float-end flex-row">
           <% if user_signed_in? %>
             <li class="nav-item dropdown" onmouseover="showDropdown()" onmouseout="hideDropdown()">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Welcome <%= current_user.full_name %>!</a>
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">| Welcome <%= current_user.full_name %>!</a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="myDropdown">
                 <a class="dropdown-item" href="/profile">Profile</a>
                 <a class="dropdown-item" href="/my-ads">My Ads</a>
@@ -17,7 +17,7 @@
                 <a class="dropdown-item" href="/my-rides">Messages (0)</a>
                 <a class="dropdown-item" href="/my-rides">Change Password</a>
                 <a class="dropdown-item" href="/my-rides">Payment & Receipts</a>
-                <a class="dropdown-item" href="/logout">Sign Out</a>
+                <%= link_to "Sign Out", logout_path, class: "dropdown-item", method: :delete %>
               </div>
             </li>
             <li class="message-icon">
@@ -122,4 +122,4 @@
       </div>
     </nav>
   </div>
-</section>
+</div>

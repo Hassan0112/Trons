@@ -1,0 +1,84 @@
+body {
+    background-color: #f2f3f3;
+  }
+.edit-container .container{
+  background-color: #fff;
+  border: 1px solid #e6e6e6;
+}
+.edit-page{
+  padding: 29px;
+}
+.edit-page .edit-h1{
+  font-family: sans-serif;
+  font-size: 30px;
+}
+.col-md-4 {
+  font-family: sans-serif;
+  padding: 10px;
+}
+.input-edit {
+  margin-bottom: 17px;
+}
+.dob-input .input-group .form-control {
+  font-family: sans-serif;
+  width: 250px;
+  max-width: 74%;
+}
+.edit-form .form-control {
+  border-radius: 4px;
+  height: 48px;
+  padding: 6px 18px;
+  width: 353px;
+  max-width: 85%;
+}
+.edit-form .btn{
+  min-width: 20px;
+  padding: 6px 12px;
+  color: #fff;
+  background-color: #233d7b;
+}
+.btn-save{
+  border-radius: 3px;
+  border-top: 1px solid #EAEDEF;
+  margin: 10px 0 !important;
+  padding: 30px;
+}
+.edit-form  .btn-facebook .btn{
+  font-family: sans-serif;
+  font-weight: normal;
+  background: #405a94;
+  border-radius: 3px;
+  border: none;
+  box-shadow: 0 2px 0 #223c7a;
+  padding-top: 4px !important;
+  padding-right: 25px !important;
+  padding-bottom: 4px !important;
+line-height: 36px;
+}
+.edit-navbar .header .navbar-nav .nav-link{
+  color: black;
+}
+.edit-navbar .message-icon a{
+  text-decoration: none; 
+  color: black;
+}
+.edit-navbar .main-nav .navbar-nav .nav-link{
+color: black;
+}
+.profile-photo{
+  height: 179px;
+  width: 189px;
+}
+.edit-form .btn-password{
+  color: #518eeb;
+  text-decoration: none;
+  background-color: transparent;
+  border: none;
+}
+.edit-navbar .navbar-nav .nav-item.dropdown:hover a.nav-link {
+  color: black;
+}
+.dropdown-item:hover {
+  color: #fff;
+  background-color: blue;
+}
