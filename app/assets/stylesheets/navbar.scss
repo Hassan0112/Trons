@@ -1,3 +1,10 @@
+.mini-nav .dropdown-menu {
+  position: absolute;
+  font-family: sans-serif;
+}
+.message-icon{
+  margin-left: 0.5rem;
+}
 .background-image{
   background: url('MainBanner-6cb14f420e9f3a3edb1d851877883e20.png') no-repeat center center;
   background-size: cover;
@@ -52,6 +59,10 @@
   border-radius: 4px;
   font-weight: 700;
   width: 142px;
+}
+.message-icon a {
+  text-decoration: none; 
+  color: #fff;
 }
 .navbar-nav .nav-item.dropdown:hover .dropdown-menu {
   display: block;

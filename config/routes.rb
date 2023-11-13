@@ -3,4 +3,9 @@ Rails.application.routes.draw do
     get '/logout', to: 'session#logout', as: 'logout'  
   devise_for :users, controllers: { registrations: 'users' }
 
+  get '/profile', to: 'users#edit'
+  patch '/profile', to: 'users#update'
+  get '/profile', to: 'users#profile', as: 'user_profile'
+  patch '/update_profile_picture', to: 'users#update_profile_picture', as: 'update_profile_picture'
+
 end
