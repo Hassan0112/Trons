@@ -79,3 +79,15 @@
 .navbar-nav .nav-item.dropdown:hover .dropdown-menu{
   background-color: #fff;
 }
+.main-nav .dropdown-menu.post-buttton .dropdown-item{
+  font-family: sans-serif;
+  text-align: center;
+  padding-bottom: 2px;
+}
+.main-nav .nav-item.dropdown .dropdown-menu.post-buttton{
+  top: 51px;
+  box-shadow: 0 2px 5px;
+  border-radius: 0%;
+  border-bottom: 4px solid #b73439;
+  min-width: 146px;
+}

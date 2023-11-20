@@ -110,11 +110,10 @@
               <a class="nav-link dropdown-toggle nav-post" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Post an Ad
               </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
+              <ul class="dropdown-menu post-buttton">
+                <li><%= link_to 'Sell Your Car', used_cars_sell_path, class: 'dropdown-item' %></li>
+                <li><a class="dropdown-item" href="#">Sell Your Bike</a></li>
+                <li><a class="dropdown-item" href="#">Sell Accessary</a></li>
               </ul>
             </li>
           </ul>
