@@ -4,7 +4,6 @@ class User < ApplicationRecord
   has_one_attached :profile_picture
   validates :full_name, :gender, :country, :city, :username, presence: true
   validates :username, uniqueness: true
-  validates :password, presence: true
-  validates :password_confirmation, presence: true
+  validates :password, :password_confirmation, presence: true
   
 end
