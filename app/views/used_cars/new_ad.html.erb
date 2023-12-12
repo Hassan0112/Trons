@@ -1,0 +1,225 @@
+<%= render 'users/backnavbar' %>
+<section class="steps-section1">
+  <div class="first-section">
+    <h1 class="section1-h1 text-center">Sell Your Car With 3 Easy & Simple Steps! </h1>
+    <p class="text-center "> it's free and takes less than a minute</p>
+    <div class="section1-images">
+      <img src="/assets/car2.png" alt="Description of the image" class="ad1-image">
+        Enter Your Car Information
+      <img src="/assets/gallery.png" alt="Description of the image" class="ad1-image">
+        Upload Photos
+      <img src="/assets/selling -price.png" alt="Description of the image" class="ad1-image">
+        Enter Your Selling Price
+    </div>
+  </div>
+</section>
+
+<section class="info-section2">
+  <div class="container">
+    <%= form_with(model:@current_user, url: used_cars_sell_path, method: :post) do |form|%>
+      <div class="main-sell-form">
+        <div>
+          <h3>Car Information</h3>
+          <p>(All fields marked with <label>*</label> are mandatory )</p>
+        </div>
+
+        <div class="form-group row">
+          <%= form.label :city, "City", class:"col-md-3 text-md-end" %>
+          <div class="col-md-5 ad-input ">
+            <select class="form-select form-control" aria-label="Default select example">
+              <option selected>City</option>
+              <option value="1">Lahore</option>
+              <option value="2">Karachi</option>
+              <option value="3">Fasailbad</option>
+            </select>
+          </div>
+          <div class="col-md-4">
+            <div class="image1-bulb1">
+              <img src="/assets/bulb.png" alt="Description of the image" class="section2bulb-image">
+              We don't allow duplicates of same ad.
+            </div>  
+          </div>
+        </div>
+
+        <div class="form-group row">
+        <%= form.label :car_info, " Car Info <span class='star-color'>*</span>".html_safe, class: "col-md-3 text-md-end" %>
+          <div class="col-md-5 ad-input">
+            <%= form.text_field :full_name, class: "form-control", placeholder: "Make/Model/Version" %>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <%= form.label :registered_in, "Registered In", class:"col-md-3 text-md-end" %>
+          <div class="col-md-5 ad-input">
+            <select class="form-select form-control" aria-label="Default select example">
+              <option selected>Un-Registered</option>
+              <option value="1">Lahore</option>
+              <option value="2">Karachi</option>
+              <option value="3">Fasailbad</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <%= form.label :exterior_color,  " Exteriror Color <span class='star-color'>*</span>".html_safe, class:"col-md-3 text-md-end" %>
+          <div class="col-md-5 ad-input">
+            <select class="form-select form-control" aria-label="Default select example">
+              <option selected>Exterior Color</option>
+              <option value="1">Lahore</option>
+              <option value="2">Karachi</option>
+              <option value="3">Fasailbad</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <%= form.label :Mileage, "Mileage <span class='star-color'>*</span>".html_safe, class:"col-md-3 text-md-end" %>
+          <div class="col-md-5 ad-input2">
+            <span class="km-span">KM</span><%= form.text_field :KM, class: "form-control k-m", placeholder: "Mileage" %>
+          </div>
+          <div class="col-md-4">
+            <div class="image1-bulb1">
+              <img src="/assets/bulb.png" alt="Description of the image" class="section2bulb-image">
+              We don't allow promotional messages that are not relevant to ad
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row">
+        <%= form.label :PKR, ("Price <span class='star-color'>*</span>".html_safe + "Rs."), class: "col-md-3 text-md-end" %>
+          <div class="col-md-5 ad-input2">
+            <span class="km-span">PKR</span><%= form.text_field :KM, class: "form-control k-m validate-on-click", placeholder: "Price", id: "input-price" %>
+            <div class="error-message" style="color: red;"></div>
+            <p class="para5-text display-none">should be greater than '0'<p>
+          </div>
+          <div class="col-md-4">
+            <div class="image1-bulb1">
+              <img src="/assets/bulb.png" alt="Description of the image" class="section2bulb-image">
+              Please enter a realistic price to get more genuine responses.
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-md-3 text-md-end">
+            Ad Description
+            <span class='star-color'>*</span>
+            <img src="/assets/sell-car.png" alt="Description of the image">
+          </label>
+          <div class="col-md-8">
+            <div class="text-end" style="text-align: end;font-size: 12px;">
+              Remaining Words: <span id="remaining-words">1000</span>
+            </div>
+            <%= form.text_area :description, class: "form-control", rows: 6, id: "ad-description" %>
+            <div class="section2-para1">
+              <p>You can also use this suggestions</p>
+              <div id="suggestion">
+                <span class="design-span">Bumper-to-Bumper Original</span>
+                <span class="design-span">Like New</span>
+                <span class="design-span">Authorized Workshop Maintained</span>
+                <span class="design-span">Fresh Import</span>
+                <span class="design-span">Complete Service History</span>
+                <span class="design-span">Price Negotiable</span>
+                <span class="design-span">Alloy Rims</span>
+                <span class="design-span">Original Book</span>
+                <span class="design-span">New Tires</span>
+                <span class="design-span">Duplicate Book</span>
+                <span class="design-span">Complete Original File</span>
+                <span class="design-span">Duplicate File</span>
+                <span class="design-span">Duplicate Number Plate</span>
+                <span class="design-span">Token or Tax Up to Date</span>
+                <span class="design-span">Urgent Sale</span>
+                <span class="design-span">Driven on Petrol</span>
+                <span class="design-span">Engine Repaired</span>
+                <span class="design-span">Sealed Engine</span>
+                <span class="design-span">Contact During Office Hours</span>
+                <span class="design-span">Exchange Possible</span>
+              </div>
+              <div id="toggleButton">Show More Suggestions <i class="fas fa-chevron-circle-down"></i></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    <%end%>
+  </div>
+</section>
+
+<section class="photo-section3">
+  <div class="container">
+    <div class="main-div-section3">
+      <div class="upload-photo-h2">
+        <h2 class="section3-header" style="margin-bottom: 2rem;">Upload Photo</h2>
+      </div>
+      <div class="upload-image-hint">
+        <div class="section3-image1-button1 ">
+          <img src="/assets/gallery.png" alt="Description of the image" class="section3-image">
+          <div class="section3-image-button">
+            <p class="btn btn-success section3-btn1">+ Add Photos</p>
+            <div class="section3-para1">(Max Limit 5 MB per image)</div>  
+          </div>
+        </div>
+        <div class="row photo-info">
+          <div class="col-md-4 col-md-offset-1">
+            <i class="fa-regular fa-circle-check" style="color: #3eb549;"></i>
+            <strong>Adding at least 8 pictures</strong> improves the chances for a quick sale.
+          </div>
+          <div class="col-md-5 col-md-offset-1">
+            <i class="fa-regular fa-circle-check" style="color: #3eb549;"></i>
+            <strong>Adding clear Front, Back and Interior pictures</strong> of your car increases the quality of your Ad and gets you notice more.
+          </div>
+          <div class="col-md-5 col-md-offset-4  mt-4" style="margin-left: 33.333%;">
+            <i class="fa-regular fa-circle-check" style="color: #3eb549;"></i>
+            <strong>Photos should be</strong> in 'jpeg, jpg, png, gif' format only
+          </div>
+        </div>
+      </div>
+    </div>  
+  </div>
+</section>
+
+<section class="car-info-section4">
+  <div class="container">
+    <fieldset>
+      <div class="section4-div1">
+        <h2>Contact Information<h2>
+        <div class="form-group row">
+          <%= label :Mobile_Number, "Mobile Number", class:"col-md-3 text-md-end contact-info" %>
+          <div class="col-md-5">
+            <span class="icon-section4"><i class="fa fa-th"></i></span>
+            <%= text_field(:post, :S_N, class: "field-section4", placeholder:"Mobile number") %>
+          </div>
+          <div class="col-md-4 section4-mob-parent">
+            <div class="mobile-para" style="font-size: 1rem;">
+              <i class="fa fa-mobile  hint-icon"></i>
+              <span class="section4-mob-para">Enter a genuine 11 digit mobile no. with format 03XXXXXXXXX. All inquires will come on this number.<span>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <%= label :Secondary_number, "Secondary Number(Optional)", class:"col-md-3 text-md-end contact-info" %>
+          <div class="col-md-9 contact4-input">
+            <%= text_field :post, :Secondary_number, class: "field2-section4", placeholder:"Secondary number" %>
+          </div>
+        </div>
+        <div class="form-group row">
+          <%= label :Whatapp_image, " ", class:"col-md-3" %>
+          <div class="col-md-9 contact4-input">
+            <img src="/assets/whatapp.jpeg" alt="Description of the image" class="section4-whatsappimage">
+            <span class="whatsapp4-icon">Allow WhatsApp Contact</span>
+            <span class="slider_whatsapp round"></span>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+</section>
+<section class="section5">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-end button-last">
+        <button type="button" class="btn btn-success btn-lg section5-last-button">SUBMIT & CONTINUE</button>
+      </div>
+    </div>
+  </div>
+</section>
