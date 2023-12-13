@@ -6,3 +6,4 @@ import './sign_in';
 import './forgot_password';
 import './navbar_sign_in.js';
 import './navbar_sign_up.js';
+import './edit_password.js';
