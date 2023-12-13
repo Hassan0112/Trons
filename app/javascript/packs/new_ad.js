@@ -14,10 +14,7 @@ $(document).ready(function() {
     // Display the remaining words count
     $('#remaining-words').text(remainingWords);
   }
-});
 
-
-$(document).ready(function() {
   $('#toggleButton').on('click', function() {
     var suggestion = $('#suggestion');
     var buttonText = $('#toggleButton');
@@ -36,10 +33,8 @@ $(document).ready(function() {
       buttonText.text('Show More');
     }
   });
-});
 
 // app/assets/javascripts/posts.js
-$(document).ready(function() {
     var textField = $('.validate-on-click');
   var errorMessage = $('.error-message');
 
@@ -67,23 +62,6 @@ $(document).ready(function() {
     } 
   });
 });
-
-function convertNumber() {
-  // Get the input value
-  var inputValue = $('#input-price').val();
-
-  // Ensure the input is not empty
-  if (inputValue.trim() !== '') {
-      // Convert the input value using num2str plugin
-      var result = $.fn.num2str(Number(inputValue));
-
-      // Display the result
-      $('#result').text(result);
-  } else {
-      console.error("Input field is empty. Please enter a number.");
-  }
-}
-
 
 (function ($) {
   $.fn.num2str = function (num) {
@@ -131,7 +109,7 @@ function convertNumber() {
               else return this.convert_millions(num);
           }
       };
-      
+
       return num2str.convert(num);
   };
 })(jQuery);
