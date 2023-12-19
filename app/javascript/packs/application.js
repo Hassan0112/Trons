@@ -1,6 +1,7 @@
 import 'jquery';
 import 'popper.js';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import 'select2/dist/js/select2.min.js';
 import './sign_up';
 import './sign_in';
 import './forgot_password';
