@@ -28,7 +28,9 @@ gem 'jquery-rails'
 
 # Use Active Storage variant
 gem 'image_processing', '~> 1.2'
-
+gem 'city-state'
+#For Another Select option in Dropdown 
+gem 'select2-rails'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 

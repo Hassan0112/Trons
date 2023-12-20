@@ -113,3 +113,24 @@ $(document).ready(function() {
       return num2str.convert(num);
   };
 })(jQuery);
+
+
+
+
+$(document).ready(function() {
+  $('.select2').select2({
+    templateResult: formatResult
+  });  // Initialize Select2 for elements with the select2 class
+});
+
+function formatResult(result) {
+
+
+  // Check if the result is a group header (e.g., "Popular Cities" or "Other Cities")
+  if (result.text === "Popular Cities" || result.text === "Other Cities") {
+    // Apply bold styling to group headers
+    return $('<span style="font-weight:bold;">' + result.text + '</span>');
+  }
+
+  return result.text; // For individual city items
+}
