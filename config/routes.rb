@@ -9,5 +9,7 @@ Rails.application.routes.draw do
   patch '/update_profile_picture', to: 'users#update_profile_picture', as: 'update_profile_picture'
   get 'used-cars/sell', to: 'used_cars#index'
   get '/post-ad' , to: 'used_cars#new_ad'
+  get '/change_password', to: 'users#edit_password', as: 'change_password'
+  patch '/change_password', to: 'users#update_password'
 
 end
