@@ -3,6 +3,8 @@ class UsedCarsController < ApplicationController
   end
 
   def new_ad
+    @rigisteration = ["Un-Rigistered"]
+    @provinces = ["Punjab","Sindh"]
     cities = []
     @popular_cities = ["Karachi", "Lahore", "Islamabad", "Rawalpindi", "Peshawar"]
     states = CS.states(:PK)

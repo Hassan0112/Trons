@@ -134,3 +134,21 @@ function formatResult(result) {
 
   return result.text; // For individual city items
 }
+
+$(document).ready(function() {
+  $('#cityDropdown').select2({
+    templateResult: formatResult2
+  });
+});
+
+function formatResult2(result) {
+  if (
+    result.text === "Un-Rigistered" ||
+    result.text === "Province" ||
+    result.text === "Popular Cities" ||
+    result.text === "Other Cities"
+  ) {
+    return $('<span style="font-weight:bold;">' + result.text + '</span>');
+  }
+  return result.text;
+}
