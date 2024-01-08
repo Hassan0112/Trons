@@ -26,12 +26,7 @@
         <div class="form-group row">
           <%= form.label :city, "City", class:"col-md-3 text-md-end" %>
           <div class="col-md-5 ad-input ">
-            <select class="form-select form-control" aria-label="Default select example">
-              <option selected>City</option>
-              <option value="1">Lahore</option>
-              <option value="2">Karachi</option>
-              <option value="3">Fasailbad</option>
-            </select>
+            <%= form.select :city, options_for_select( ["City"] + ["Popular Cities"] + @popular_cities + [ "Other Cities" ] + @other_cities), {}, class: "form-select form-control select2", aria: { label: "Default select example" } %>
           </div>
           <div class="col-md-4">
             <div class="image1-bulb1">
