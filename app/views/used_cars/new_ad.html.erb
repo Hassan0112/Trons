@@ -183,7 +183,8 @@
           <%= label :Mobile_Number, "Mobile Number", class:"col-md-3 text-md-end contact-info" %>
           <div class="col-md-5">
             <span class="icon-section4"><i class="fa fa-th"></i></span>
-            <%= text_field(:post, :S_N, class: "field-section4", placeholder:"Mobile number") %>
+            <%= text_field(:vehicle, :M_N, class: "field-section4", placeholder:"Mobile number", id: "mobile_num_field") %>
+            <div class="number-error-message" style="color: red;"></div>
           </div>
           <div class="col-md-4 section4-mob-parent">
             <div class="mobile-para" style="font-size: 1rem;">

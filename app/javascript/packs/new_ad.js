@@ -34,7 +34,6 @@ $(document).ready(function() {
     }
   });
 
-// app/assets/javascripts/posts.js
     var textField = $('.validate-on-click');
   var errorMessage = $('.error-message');
 
@@ -47,7 +46,7 @@ $(document).ready(function() {
   textField.on('change keydown paste input', function() {
     var content = textField.val();
     if (content.length >= 0 && content.length < 2 ) {
-      // Display validation error
+
       errorMessage.text('Enter a valid price');
       $($(".para5-text")[0]).removeClass("display-none")
     } else if(content.length > 1) {
@@ -167,3 +166,39 @@ $(document).ready(function(){
     }
   });
 }); 
+
+
+$(document).ready(function() {
+  var mobileNumberInput = $('#mobile_num_field');
+
+  mobileNumberInput.on('keydown', function(e) {
+    var inputValue = this.value;
+    if (inputValue.length > 12) {
+      inputValue = inputValue.slice(0, 12);
+      mobileNumberInput.val(inputValue);
+    }
+    var count = 0;
+    if (e.keyCode === 13){
+      count++;
+      localStorage.setItem('count', count);
+    }
+    if (localStorage.getItem('count') > 0){
+      var isValidFormat = /^03\d{9}$/.test(inputValue);
+      var numberMessage = $(".number-error-message");
+      
+      if (isValidFormat) {
+        mobileNumberInput.removeClass('error');
+        mobileNumberInput.addClass('success');
+        numberMessage.text('');
+      } else {
+        mobileNumberInput.addClass('error');
+
+        mobileNumberInput.remove('.error-message');
+
+        if (!isValidFormat) {
+          numberMessage.text('Enter a valid mobile Number');
+        }
+      }
+    }
+  });
+});
