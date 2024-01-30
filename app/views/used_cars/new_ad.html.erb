@@ -37,7 +37,7 @@
         </div>
 
         <div class="form-group row">
-        <%= form.label :car_info, " Car Info <span class='star-color'>*</span>".html_safe, class: "col-md-3 text-md-end" %>
+         <%= form.label :car_info, " Car Info <span class='star-color'>*</span>".html_safe, class: "col-md-3 text-md-end" %>
           <div class="col-md-5 ad-input">
             <%= form.text_field :full_name, class: "form-control", placeholder: "Make/Model/Version" %>
           </div>
@@ -81,7 +81,7 @@
         </div>
 
         <div class="form-group row">
-        <%= form.label :PKR, ("Price <span class='star-color'>*</span>".html_safe + "Rs."), class: "col-md-3 text-md-end" %>
+          <%= form.label :PKR, ("Price <span class='star-color'>*</span>".html_safe + "Rs."), class: "col-md-3 text-md-end" %>
           <div class="col-md-5 ad-input2">
             <span class="km-span">PKR</span><%= form.text_field :KM, class: "form-control k-m validate-on-click", placeholder: "Price", id: "input-price" %>
             <div class="error-message" style="color: red;"></div>

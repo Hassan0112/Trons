@@ -35,7 +35,7 @@ $(document).ready(function() {
   });
 
 // app/assets/javascripts/posts.js
-    var textField = $('.validate-on-click');
+  var textField = $('.validate-on-click');
   var errorMessage = $('.error-message');
 
   textField.on('focus', function() {
@@ -50,14 +50,13 @@ $(document).ready(function() {
       // Display validation error
       errorMessage.text('Enter a valid price');
       $($(".para5-text")[0]).removeClass("display-none")
-    } else if(content.length > 1) {
-
+    } else if(content.length > 2) {
       // Convert the input value using num2str plugin
       var result = $.fn.num2str(Number(content));
 
       // Display the converted result
 
-      $('.para5-text').text( result);
+      $('.para5-text').text(result);
     
     } 
   });

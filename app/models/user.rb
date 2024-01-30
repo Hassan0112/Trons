@@ -9,4 +9,5 @@ class User < ApplicationRecord
 
   validates :password, :password_confirmation, presence: true
   
+  has_many :user_adds
 end
