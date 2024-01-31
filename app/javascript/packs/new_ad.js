@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  var maxWords = 1000;
+  var maxCharacters = (995);
 
   // Initial update
   updateRemainingWords();
@@ -7,31 +7,68 @@ $(document).ready(function() {
   // Update on input
   $('#ad-description').on('input', updateRemainingWords);
 
-  function updateRemainingWords() {
-    var currentWords = $('#ad-description').val().match(/\S+/g) || [];
-    var remainingWords = maxWords - currentWords.length;
+    $('#resetbutton').click(function(){
+      $('#ad-description').val('');
+      limitTextareaCharacter();
+    });
 
-    // Display the remaining words count
-    $('#remaining-words').text(remainingWords);
-  }
+    $('.design-span').on('click',function(){
+      var suggestiontext = $(this).text() + '.';
+      var currentDescription = $('#ad-description').val();
+      var newDescription =  currentDescription + ' ' + suggestiontext;
+      $('#ad-description').val(newDescription);
+      checkDescriptionValue();
+      updateRemainingWords(); 
+      limitTextareaCharacter();
+    });
 
-  $('#toggleButton').on('click', function() {
-    var suggestion = $('#suggestion');
-    var buttonText = $('#toggleButton');
+    $('#ad-description').on('input', function(){
+      checkDescriptionValue();
+      limitTextareaCharacter();
+    });
 
-    if (suggestion.css('overflow') === 'hidden') {
-      suggestion.css({
-        'overflow': 'visible',
-        'height': 'auto'
-      });
-      buttonText.text('Show Less');
-    } else {
-      suggestion.css({
-        'overflow': 'hidden',
-        'height': '88px'
-      });
-      buttonText.text('Show More');
+    function checkDescriptionValue(){
+      var descriptionValue = $('#ad-description').val().trim();
+      if (descriptionValue !== ""){
+        $('#ad-description').css('background-color' , ' rgb(172, 243, 172)');
+        $('.description-error').hide();
+       } else {
+        $('#ad-description').css('background-color' , 'lightpink')
+        $('.description-error').show();
+          }
     }
+
+    function updateRemainingWords() {
+        var currentText = $('#ad-description').val();
+      var remainingCharacters = maxCharacters -  currentText.length;
+
+      // Display the remaining words count
+      $('#remaining-words').text(remainingCharacters );
+    }
+    function limitTextareaCharacter(){
+      var currentText = $('#ad-description').val();
+      if (currentText.length >= maxCharacters){
+        $('#ad-description').val(currentText.substring(0,maxCharacters));
+      }
+    }
+
+    $('#toggleButton').on('click', function() {
+      var suggestion = $('#suggestion');
+      var buttonText = $('#toggleButton');
+
+      if (suggestion.css('overflow') === 'hidden') {
+        suggestion.css({
+          'overflow': 'visible',
+          'height': 'auto'
+        });
+        buttonText.html('Show Less Suggestions <i class="fas fa-chevron-circle-up"></i>');
+      } else {
+        suggestion.css({
+          'overflow': 'hidden',
+          'height': '88px'
+        });
+        buttonText.html('Show More Suggestions <i class="fas fa-chevron-circle-down"></i>');
+      }
   });
 
     var textField = $('.validate-on-click');

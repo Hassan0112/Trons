@@ -253,3 +253,23 @@
 .number-error-message{
   font-size: 1rem;
 }
+
+#resetbutton {
+  margin-left: 1rem !important;
+  cursor: pointer;
+  color: #518ecb;
+  border: none;
+  background: none;
+  padding: 0;
+  margin: 0;
+  font-size: inherit;
+}
+#resetbutton:hover {
+  color: gray;
+}
+
+#ad-description::placeholder {
+ padding-top: 10px;
+ padding-left: 12px;
+ padding-right: 10px;
+}
