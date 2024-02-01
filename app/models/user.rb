@@ -7,5 +7,5 @@ class User < ApplicationRecord
   validates :price, presence: true, 
             format: { with: /\A\d+(?:\.\d{0,2})?\z/ }, numericality: { greater_than: 0, less_than: 1000000 }
   validates :password, :password_confirmation, presence: true  
-  has_many: user_adds
+  has_many :user_adds
 end
