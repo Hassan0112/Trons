@@ -1,8 +1,28 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:new, :create]
 
+
+  def new
+    @user = User.new
+  end
+  
   def profile
     @user = current_user
+  end
+
+  def create
+    @user = User.new(user_params)
+
+    respond_to do |format|
+      if @user.save
+        format.html { redirect_to root_path, notice: 'User was successfully created.' }
+        format.json { render json: @user, status: :created, location: @user }
+      else
+        byebug
+        format.html { render :new }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def edit
@@ -52,6 +72,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation, :full_name, :profile_picture, :current_password)
+    params.require(:user).permit(:email, :password, :password_confirmation, :full_name, :profile_picture)
   end
 end
