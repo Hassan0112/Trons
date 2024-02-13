@@ -48,12 +48,12 @@ ActiveRecord::Schema.define(version: 2023_10_25_200646) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "full_name"
     t.string "gender"
     t.date "dob"
     t.string "country"
     t.string "city"
     t.string "username"
-    t.string "full_name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["username"], name: "index_users_on_username", unique: true
