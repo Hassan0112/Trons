@@ -70,7 +70,8 @@
         <div class="form-group row">
           <%= form.label :Mileage, "Mileage <span class='star-color'>*</span>".html_safe, class:"col-md-3 text-md-end" %>
           <div class="col-md-5 ad-input2">
-            <span class="km-span">KM</span><%= form.text_field :KM, class: "form-control k-m", placeholder: "Mileage" %>
+            <span class="km-span">KM</span><%= form.text_field :KM, class: "form-control k-m", placeholder: "Mileage", id: "mileage-input" %>
+            <div class="mileage-error-message" style="color: red;"></div>
           </div>
           <div class="col-md-4">
             <div class="image1-bulb1">

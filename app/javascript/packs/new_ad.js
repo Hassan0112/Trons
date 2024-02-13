@@ -133,3 +133,37 @@ function formatResult(result) {
 
   return result.text; // For individual city items
 }
+
+
+$(document).ready(function(){
+
+  var mileageInput = $("#mileage-input");
+  var errorMessage = $(".mileage-error-message"); 
+
+  mileageInput.on('input', function() {
+    var mileagevalue = $("#mileage-input").val();
+
+    if(mileagevalue <= 0 || mileagevalue > 99999 ){
+      errorMessage.text('Enter valid  mileage(1-100000)');
+      mileageInput.val('');  
+      mileageInput.removeClass('success').addClass('error');  
+    } else {
+      errorMessage.text('');
+      mileageInput.removeClass('error').addClass('success');
+    }
+  });
+
+  mileageInput.keypress(function (event){
+    var currentmileage = mileageInput.val();
+    var combineValue = currentmileage + event.key
+
+    if (combineValue <= 0 || combineValue > 99999){
+      event.preventDefault();
+    }
+  });
+  mileageInput.keypress(function(event) {
+    if (!/[0-9\.]/.test(event.key)) {
+      event.preventDefault();
+    }
+  });
+}); 
