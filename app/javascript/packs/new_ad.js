@@ -34,7 +34,6 @@ $(document).ready(function() {
     }
   });
 
-// app/assets/javascripts/posts.js
     var textField = $('.validate-on-click');
   var errorMessage = $('.error-message');
 
@@ -47,7 +46,7 @@ $(document).ready(function() {
   textField.on('change keydown paste input', function() {
     var content = textField.val();
     if (content.length >= 0 && content.length < 2 ) {
-      // Display validation error
+
       errorMessage.text('Enter a valid price');
       $($(".para5-text")[0]).removeClass("display-none")
     } else if(content.length > 1) {
@@ -167,3 +166,26 @@ $(document).ready(function(){
     }
   });
 }); 
+
+
+$(document).ready(function() {
+  var mobileNumberInput = $('#mobile_num_field');
+  var texterror = $('.number-error-message')
+  mobileNumberInput.on('input', function(e) {
+    debugger
+    var inputValue = this.value;
+    var isValidFormat = /^03\d{9}$/.test(inputValue);
+    if (inputValue.length === 11 && isValidFormat) {
+      mobileNumberInput.addClass('success');
+      mobileNumberInput.removeClass('error');
+      texterror.text('');
+    } else if (inputValue.length > 11 || (inputValue.length > 0 && inputValue.length < 11)) {
+      mobileNumberInput.removeClass('success');
+      mobileNumberInput.addClass('error');
+      texterror.text('Enter a valid mobile Number');
+    } else {
+      mobileNumberInput.removeClass('success', 'error');
+    }
+
+  })
+});
