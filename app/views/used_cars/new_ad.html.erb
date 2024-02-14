@@ -58,12 +58,27 @@
         <div class="form-group row">
           <%= form.label :exterior_color,  " Exteriror Color <span class='star-color'>*</span>".html_safe, class:"col-md-3 text-md-end" %>
           <div class="col-md-5 ad-input">
-            <select class="form-select form-control" aria-label="Default select example">
-              <option selected>Exterior Color</option>
-              <option value="1">Lahore</option>
-              <option value="2">Karachi</option>
-              <option value="3">Fasailbad</option>
-            </select>
+            <div class="custom-dropdown">
+              <select class="form-select form-control" aria-label="Default select example" id="car_color" name="car[color]">
+                <option selected disabled>Choose Exterior Color</option>
+                <option value="1" data-color="#FF0000">Red <strong class="pull-right chzn-color" style="background-color:#CD7F32"></strong></option>
+                <option value="2" data-color="#000000">Black</option>
+                <option value="3" data-color="#008000">Green</option>
+                <option value="3" data-color="#90EE90">Light Green</option>
+                <option value="3" data-color="#808080">Grey</option>
+                <option value="3" data-color="#0000FF">Blue</option>
+                <option value="3" data-color="#FFD700">Gold</option>
+                <option value="3" data-color="#800000">Marron</option>
+                <option value="3" data-color="#FFC0CB">Pink</option>
+                <option value="3" data-color="#A52A2A">Brown</option>
+                <option value="3" data-color="#800020">Burgundy</option>
+                <option value="3" data-color="#FFFF00">Yellow</option>
+                <option value="3" data-color="#800080">Purple</option>
+                <option value="3" data-color="#FFA500">Orange</option>
+                <option value="16">Unlisted</option>
+              </select>
+            <div class="color-preview" id="color-preview"></div>
+        </div>
           </div>
         </div>
 

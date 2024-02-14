@@ -272,3 +272,19 @@
  padding-left: 12px;
  padding-right: 10px;
 }
+.custom-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.color-preview {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+  top: 50%;
+  right: 10px;
+  margin-right: 22px;
+  transform: translateY(-129%);
+}
