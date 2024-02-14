@@ -1,4 +1,4 @@
-class CreateUserAdd < ActiveRecord::Migration[6.1]
+class CreateUserAdds < ActiveRecord::Migration[6.1]
   def change
     create_table :user_adds do |t|
       t.string :city, null:false
