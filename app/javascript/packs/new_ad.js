@@ -170,35 +170,22 @@ $(document).ready(function(){
 
 $(document).ready(function() {
   var mobileNumberInput = $('#mobile_num_field');
-
-  mobileNumberInput.on('keydown', function(e) {
+  var texterror = $('.number-error-message')
+  mobileNumberInput.on('input', function(e) {
+    debugger
     var inputValue = this.value;
-    if (inputValue.length > 12) {
-      inputValue = inputValue.slice(0, 12);
-      mobileNumberInput.val(inputValue);
+    var isValidFormat = /^03\d{9}$/.test(inputValue);
+    if (inputValue.length === 11 && isValidFormat) {
+      mobileNumberInput.addClass('success');
+      mobileNumberInput.removeClass('error');
+      texterror.text('');
+    } else if (inputValue.length > 11 || (inputValue.length > 0 && inputValue.length < 11)) {
+      mobileNumberInput.removeClass('success');
+      mobileNumberInput.addClass('error');
+      texterror.text('Enter a valid mobile Number');
+    } else {
+      mobileNumberInput.removeClass('success', 'error');
     }
-    var count = 0;
-    if (e.keyCode === 13){
-      count++;
-      localStorage.setItem('count', count);
-    }
-    if (localStorage.getItem('count') > 0){
-      var isValidFormat = /^03\d{9}$/.test(inputValue);
-      var numberMessage = $(".number-error-message");
-      
-      if (isValidFormat) {
-        mobileNumberInput.removeClass('error');
-        mobileNumberInput.addClass('success');
-        numberMessage.text('');
-      } else {
-        mobileNumberInput.addClass('error');
 
-        mobileNumberInput.remove('.error-message');
-
-        if (!isValidFormat) {
-          numberMessage.text('Enter a valid mobile Number');
-        }
-      }
-    }
-  });
+  })
 });
