@@ -38,3 +38,5 @@
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+#Ignore the databse.yml file
+/config/database.yml

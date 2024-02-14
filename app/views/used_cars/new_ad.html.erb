@@ -70,7 +70,8 @@
         <div class="form-group row">
           <%= form.label :Mileage, "Mileage <span class='star-color'>*</span>".html_safe, class:"col-md-3 text-md-end" %>
           <div class="col-md-5 ad-input2">
-            <span class="km-span">KM</span><%= form.text_field :KM, class: "form-control k-m", placeholder: "Mileage" %>
+            <span class="km-span">KM</span><%= form.text_field :KM, class: "form-control k-m", placeholder: "Mileage", id: "mileage-input" %>
+            <div class="mileage-error-message" style="color: red;"></div>
           </div>
           <div class="col-md-4">
             <div class="image1-bulb1">
@@ -103,9 +104,9 @@
           </label>
           <div class="col-md-8">
             <div class="text-end" style="text-align: end;font-size: 12px;">
-              Remaining Words: <span id="remaining-words">1000</span>
+            Remaining Words: <span id="remaining-words">1000</span><span id="resetbutton"><strong>Reset<strong></span>
             </div>
-            <%= form.text_area :description, class: "form-control", rows: 6, id: "ad-description" %>
+            <%= form.text_area :description, class: "form-control", rows: 6, id: "ad-description", placeholder: "Describe Your car:\nExample:Alloy rim, first owner, genuine parts, maintained by authorized workshop, excellent mileage, original paint etc." %>
             <div class="section2-para1">
               <p>You can also use this suggestions</p>
               <div id="suggestion">
@@ -182,7 +183,8 @@
           <%= label :Mobile_Number, "Mobile Number", class:"col-md-3 text-md-end contact-info" %>
           <div class="col-md-5">
             <span class="icon-section4"><i class="fa fa-th"></i></span>
-            <%= text_field(:post, :S_N, class: "field-section4", placeholder:"Mobile number") %>
+            <%= text_field(:vehicle, :M_N, class: "field-section4", placeholder:"Mobile number", id: "mobile_num_field") %>
+            <div class="number-error-message" style="color: red;"></div>
           </div>
           <div class="col-md-4 section4-mob-parent">
             <div class="mobile-para" style="font-size: 1rem;">
