@@ -104,9 +104,9 @@
           </label>
           <div class="col-md-8">
             <div class="text-end" style="text-align: end;font-size: 12px;">
-              Remaining Words: <span id="remaining-words">1000</span>
+            Remaining Words: <span id="remaining-words">1000</span><span id="resetbutton"><strong>Reset<strong></span>
             </div>
-            <%= form.text_area :description, class: "form-control", rows: 6, id: "ad-description" %>
+            <%= form.text_area :description, class: "form-control", rows: 6, id: "ad-description", placeholder: "Describe Your car:\nExample:Alloy rim, first owner, genuine parts, maintained by authorized workshop, excellent mileage, original paint etc." %>
             <div class="section2-para1">
               <p>You can also use this suggestions</p>
               <div id="suggestion">

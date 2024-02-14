@@ -1,18 +1,51 @@
 $(document).ready(function() {
-  var maxWords = 1000;
-
-  // Initial update
+  var maxCharacters = (995);
   updateRemainingWords();
-
-  // Update on input
   $('#ad-description').on('input', updateRemainingWords);
 
+  $('#resetbutton').click(function(){
+    $('#ad-description').val('');
+    limitTextareaCharacter();
+  });
+
+  $('.design-span').on('click',function(){
+    var suggestiontext = $(this).text() + '.';
+    var currentDescription = $('#ad-description').val();
+    var newDescription =  currentDescription + ' ' + suggestiontext;
+    $('#ad-description').val(newDescription);
+    checkDescriptionValue();
+    updateRemainingWords(); 
+    limitTextareaCharacter();
+  });
+
+  $('#ad-description').on('input', function(){
+    checkDescriptionValue();
+    limitTextareaCharacter();
+  });
+
+  function checkDescriptionValue(){
+    var descriptionValue = $('#ad-description').val().trim();
+    if (descriptionValue !== ""){
+      $('#ad-description').css('background-color' , ' rgb(172, 243, 172)');
+      $('.description-error').hide();
+      } else {
+      $('#ad-description').css('background-color' , 'lightpink')
+      $('.description-error').show();
+        }
+  }
+
   function updateRemainingWords() {
-    var currentWords = $('#ad-description').val().match(/\S+/g) || [];
-    var remainingWords = maxWords - currentWords.length;
+      var currentText = $('#ad-description').val();
+    var remainingCharacters = maxCharacters -  currentText.length;
 
     // Display the remaining words count
-    $('#remaining-words').text(remainingWords);
+    $('#remaining-words').text(remainingCharacters );
+  }
+  function limitTextareaCharacter(){
+    var currentText = $('#ad-description').val();
+    if (currentText.length >= maxCharacters){
+      $('#ad-description').val(currentText.substring(0,maxCharacters));
+    }
   }
 
   $('#toggleButton').on('click', function() {
@@ -24,17 +57,17 @@ $(document).ready(function() {
         'overflow': 'visible',
         'height': 'auto'
       });
-      buttonText.text('Show Less');
+      buttonText.html('Show Less Suggestions <i class="fas fa-chevron-circle-up"></i>');
     } else {
       suggestion.css({
         'overflow': 'hidden',
         'height': '88px'
       });
-      buttonText.text('Show More');
+      buttonText.html('Show More Suggestions <i class="fas fa-chevron-circle-down"></i>');
     }
   });
 
-    var textField = $('.validate-on-click');
+  var textField = $('.validate-on-click');
   var errorMessage = $('.error-message');
 
   textField.on('focus', function() {
@@ -61,6 +94,7 @@ $(document).ready(function() {
     } 
   });
 });
+
 
 (function ($) {
   $.fn.num2str = function (num) {
