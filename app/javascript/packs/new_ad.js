@@ -223,3 +223,18 @@ $(document).ready(function() {
 
   })
 });
+
+$(document).ready(function() {
+  const colorSelect = $('#car_color');
+  const colorPreview = $('#color-preview');
+
+  function updateColorPreview() {
+    const selectedColor = colorSelect.find(':selected');
+    const backgroundColor = selectedColor.data('color') || 'transparent';
+    colorPreview.css('background-color', backgroundColor);
+  }
+
+  colorSelect.change(updateColorPreview);
+
+  updateColorPreview();
+});
