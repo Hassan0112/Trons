@@ -1,9 +1,11 @@
 class UsedCarsController < ApplicationController
+  
   def post_ad
-    # Your controller logic goes here
   end
 
   def new_ad
+    @rigisteration = ["Un-Rigistered"]
+    @provinces = ["Punjab","Sindh"]
     cities = []
     @popular_cities = ["Karachi", "Lahore", "Islamabad", "Rawalpindi", "Peshawar"]
     states = CS.states(:PK)
@@ -18,6 +20,4 @@ class UsedCarsController < ApplicationController
   def user_params
     params.permit(:city, :state)
   end
-
-  
 end

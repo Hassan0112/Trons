@@ -46,12 +46,7 @@
         <div class="form-group row">
           <%= form.label :registered_in, "Registered In", class:"col-md-3 text-md-end" %>
           <div class="col-md-5 ad-input">
-            <select class="form-select form-control" aria-label="Default select example">
-              <option selected>Un-Registered</option>
-              <option value="1">Lahore</option>
-              <option value="2">Karachi</option>
-              <option value="3">Fasailbad</option>
-            </select>
+            <%= form.select :city, options_for_select( ["Registered In"]  + ["Un-Rigistered"] + @rigisteration + ["Province"] + @provinces + ["Popular Cities"] + @popular_cities + [ "Other Cities" ] + @other_cities), {}, class: "form-select form-control select2",  id: "cityDropdown", aria: { label: "Default select example" } %>
           </div>
         </div>
 
