@@ -11,6 +11,5 @@ Rails.application.routes.draw do
   get '/post-ad' , to: 'used_cars#new_ad'
   get '/change_password', to: 'users#edit_password', as: 'change_password'
   patch '/change_password', to: 'users#update_password'
-  get '/products/pakwheels-sell-it-for-me/new', to: 'products#pakwheels_sell_it_for_me_new'
 
 end
