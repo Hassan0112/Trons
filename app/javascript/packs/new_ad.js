@@ -11,7 +11,7 @@ $(document).ready(function() {
   $('.design-span').on('click',function(){
     var suggestiontext = $(this).text() + '.';
     var currentDescription = $('#ad-description').val();
-    var newDescription =  currentDescription + ' ' + suggestiontext;
+    var newDescription =  currentDescription + '' + suggestiontext;
     $('#ad-description').val(newDescription);
     checkDescriptionValue();
     updateRemainingWords(); 
@@ -76,22 +76,30 @@ $(document).ready(function() {
     errorMessage.text('');
   });
 
-  textField.on('change keydown paste input', function() {
-    var content = textField.val();
-    if (content.length >= 0 && content.length < 2 ) {
+  textField.on('change keyup paste input', function() {
+    var content = $(this).val();
 
+
+    if (content.trim() === '') {
       errorMessage.text('Enter a valid price');
-      $($(".para5-text")[0]).removeClass("display-none")
-    } else if(content.length > 1) {
-
-      // Convert the input value using num2str plugin
-      var result = $.fn.num2str(Number(content));
-
-      // Display the converted result
-
-      $('.para5-text').text( result);
-    
-    } 
+      $(".para5-text").addClass("display-none");
+    } else {
+        if (content.length >= 0 && content.length < 2) {
+          errorMessage.text('Enter a valid price');
+          $(".para5-text").addClass("display-none");
+        } else if (content < 0) {
+          errorMessage.text('Enter a valid price');
+          $(".para5-text").addClass("display-none");
+          } else if (content.length >= 2) {
+            errorMessage.empty();
+            $(".para5-text").removeClass("display-none");
+            var result = $.fn.num2str(Number(content));
+            $('.para5-text').text(result);
+          } else {
+            errorMessage.empty();
+            $(".para5-text").addClass("display-none");
+        }
+      }
   });
 });
 
@@ -150,7 +158,7 @@ $(document).ready(function() {
 
 
 $(document).ready(function() {
-  $('.select2').select2({
+  $('.city-select2').select2({
     templateResult: formatResult
   });
 });
@@ -256,4 +264,8 @@ $(document).ready(function() {
     }
     return result.text;
   }
+});
+
+$(document).ready(function() {
+  $('.exterior-select2').select2();
 });

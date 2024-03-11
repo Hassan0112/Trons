@@ -45,10 +45,10 @@ ActiveRecord::Schema.define(version: 2024_01_31_175532) do
     t.string "registered_in"
     t.string "exterior_color", null: false
     t.float "mileage", null: false
-    t.integer "price", null: false
+    t.bigint "price", null: false
     t.string "add_description", null: false
-    t.integer "mobile_number", null: false
-    t.integer "secondary_number"
+    t.bigint "mobile_number", null: false
+    t.bigint "secondary_number"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

@@ -16,7 +16,22 @@
 
 <section class="info-section2">
   <div class="container">
-    <%= form_with(model:@current_user, url: used_cars_sell_path, method: :post) do |form|%>
+    <% if @user_add.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@user_add.errors.count, "error") %> prohibited this model from being saved:</h2>
+        <ul>
+          <% @user_add.errors.each do |attribute, message| %>
+            <% if @user_add.errors[attribute].any? && @user_add[attribute].blank? %>
+              <li><%= "#{attribute.to_s.humanize} #{message}" %></li>
+            <% end %>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <%= form_with(model:@user_add, url: used_cars_sell_path, method: :post, multipart: true) do |form|%>
+      <% if current_user %>
+        <%= form.hidden_field :user_id, value: current_user.id %>
+      <% end %>
       <div class="main-sell-form">
         <div>
           <h3>Car Information</h3>
@@ -24,63 +39,62 @@
         </div>
 
         <div class="form-group row">
-          <%= form.label :city, "City", class:"col-md-3 text-md-end" %>
-          <div class="col-md-5 ad-input ">
-            <%= form.select :city, options_for_select( ["City"] + ["Popular Cities"] + @popular_cities + [ "Other Cities" ] + @other_cities), {}, class: "form-select form-control select2", aria: { label: "Default select example" } %>
+          <%= form.label :city, "City", class: "col-md-3 text-md-end", for: "city-select" %>
+          <div class="col-md-5 ad-input">
+            <%= form.select :city, options_for_select([["Popular Cities"] + @popular_cities + ["Other Cities"]] + @other_cities, @user_add.city), { include_blank: "" }, class: "form-select form-control select2 city-select2", id: "city-select", aria: { label: "Default select example" }, "data-placeholder" => "Select" %>
           </div>
           <div class="col-md-4">
             <div class="image1-bulb1">
               <img src="/assets/bulb.png" alt="Description of the image" class="section2bulb-image">
-              We don't allow duplicates of same ad.
-            </div>  
+              We don't allow duplicates of the same ad.
+            </div>
           </div>
         </div>
 
-        <div class="form-group row">
-        <%= form.label :car_info, " Car Info <span class='star-color'>*</span>".html_safe, class: "col-md-3 text-md-end" %>
-          <div class="col-md-5 ad-input">
-            <%= form.text_field :full_name, class: "form-control", placeholder: "Make/Model/Version" %>
-          </div>
-        </div>
 
         <div class="form-group row">
           <%= form.label :registered_in, "Registered In", class:"col-md-3 text-md-end" %>
           <div class="col-md-5 ad-input">
-            <%= form.select :city, options_for_select( ["Registered In"]  + ["Un-Rigistered"] + @rigisteration + ["Province"] + @provinces + ["Popular Cities"] + @popular_cities + [ "Other Cities" ] + @other_cities), {}, class: "form-select form-control select2",  id: "cityDropdown", aria: { label: "Default select example" } %>
+            <%= form.select :registered_in, options_for_select( ["Registered In"]  + ["Un-Rigistered"] + @rigisteration + ["Province"] + @provinces + ["Popular Cities"] + @popular_cities + [ "Other Cities" ] + @other_cities, @user_add.registered_in), { include_blank: "" }, class: "form-select form-control select2",  id: "cityDropdown", aria: { label: "Default select example" }, "data-placeholder" => "Select" %>
           </div>
         </div>
 
         <div class="form-group row">
-          <%= form.label :exterior_color,  " Exteriror Color <span class='star-color'>*</span>".html_safe, class:"col-md-3 text-md-end" %>
+          <%= form.label :exterior_color, "Exterior Color <span class='star-color'>*</span>".html_safe, class: "col-md-3 text-md-end" %>
           <div class="col-md-5 ad-input">
             <div class="custom-dropdown">
-              <select class="form-select form-control" aria-label="Default select example" id="car_color" name="car[color]">
-                <option selected disabled>Choose Exterior Color</option>
-                <option value="1" data-color="#FF0000">Red <strong class="pull-right chzn-color" style="background-color:#CD7F32"></strong></option>
-                <option value="2" data-color="#000000">Black</option>
-                <option value="3" data-color="#008000">Green</option>
-                <option value="3" data-color="#90EE90">Light Green</option>
-                <option value="3" data-color="#808080">Grey</option>
-                <option value="3" data-color="#0000FF">Blue</option>
-                <option value="3" data-color="#FFD700">Gold</option>
-                <option value="3" data-color="#800000">Marron</option>
-                <option value="3" data-color="#FFC0CB">Pink</option>
-                <option value="3" data-color="#A52A2A">Brown</option>
-                <option value="3" data-color="#800020">Burgundy</option>
-                <option value="3" data-color="#FFFF00">Yellow</option>
-                <option value="3" data-color="#800080">Purple</option>
-                <option value="3" data-color="#FFA500">Orange</option>
-                <option value="16">Unlisted</option>
-              </select>
-            <div class="color-preview" id="color-preview"></div>
-        </div>
+              <%= form.select :exterior_color,
+              options_for_select([
+                ["Exterior Color", nil],
+                ["Red", "#FF0000", { 'data-color' => '#FF0000' }],
+                ["Black", "#000000", { 'data-color' => '#000000' }],
+                ["Green", "#008000", { 'data-color' => '#008000' }],
+                ["Light Green", "#90EE90", { 'data-color' => '#90EE90' }],
+                ["Grey", "#808080", { 'data-color' => '#808080' }],
+                ["Blue", "#0000FF", { 'data-color' => '#0000FF' }],
+                ["Gold", "#FFD700", { 'data-color' => '#FFD700' }],
+                ["Marron", "#800000", { 'data-color' => '#800000' }],
+                ["Pink", "#FFC0CB", { 'data-color' => '#FFC0CB' }],
+                ["Brown", "#A52A2A", { 'data-color' => '#A52A2A' }],
+                ["Burgundy", "#800020", { 'data-color' => '#800020' }],
+                ["Yellow", "#FFFF00", { 'data-color' => '#FFFF00' }],
+                ["Purple", "#800080", { 'data-color' => '#800080' }],
+                ["Orange", "#FFA500", { 'data-color' => '#FFA500' }],
+                ["Unlisted", "#16", { 'data-color' => '#16' }]
+              ], @user_add.exterior_color),
+              {},
+              class: "form-select form-control exterior-select2",
+              id: "car_color",
+              "aria-label": "Default select example", "data-placeholder" => "Exterior Color" %>
+              <div class="color-preview" id="color-preview"></div>
+            </div>
           </div>
         </div>
-
+      
         <div class="form-group row">
-          <%= form.label :Mileage, "Mileage <span class='star-color'>*</span>".html_safe, class:"col-md-3 text-md-end" %>
+          <%= form.label :mileage, "Mileage <span class='star-color'>*</span>".html_safe, class:"col-md-3 text-md-end" %>
           <div class="col-md-5 ad-input2">
-            <span class="km-span">KM</span><%= form.text_field :KM, class: "form-control k-m", placeholder: "Mileage", id: "mileage-input" %>
+            <span class="km-span">KM</span><%= form.text_field :mileage, class: "form-control k-m", placeholder: "Mileage", id: "mileage-input" %>
             <div class="mileage-error-message" style="color: red;"></div>
           </div>
           <div class="col-md-4">
@@ -92,9 +106,9 @@
         </div>
 
         <div class="form-group row">
-        <%= form.label :PKR, ("Price <span class='star-color'>*</span>".html_safe + "Rs."), class: "col-md-3 text-md-end" %>
+          <%= form.label :price, ("Price <span class='star-color'>*</span>".html_safe + "Rs."), class: "col-md-3 text-md-end" %>
           <div class="col-md-5 ad-input2">
-            <span class="km-span">PKR</span><%= form.text_field :KM, class: "form-control k-m validate-on-click", placeholder: "Price", id: "input-price" %>
+            <span class="km-span">PKR</span><%= form.text_field :price, class: "form-control k-m validate-on-click", placeholder: "Price", id: "input-price" %>
             <div class="error-message" style="color: red;"></div>
             <p class="para5-text display-none">should be greater than '0'<p>
           </div>
@@ -116,7 +130,7 @@
             <div class="text-end" style="text-align: end;font-size: 12px;">
             Remaining Words: <span id="remaining-words">1000</span><span id="resetbutton"><strong>Reset<strong></span>
             </div>
-            <%= form.text_area :description, class: "form-control", rows: 6, id: "ad-description", placeholder: "Describe Your car:\nExample:Alloy rim, first owner, genuine parts, maintained by authorized workshop, excellent mileage, original paint etc." %>
+              <%= form.text_area :add_description, class: "form-control", rows: 6, id: "ad-description", placeholder: "Describe Your car:\nExample:Alloy rim, first owner, genuine parts, maintained by authorized workshop, excellent mileage, original paint etc." %>
             <div class="section2-para1">
               <p>You can also use this suggestions</p>
               <div id="suggestion">
@@ -145,88 +159,90 @@
             </div>
           </div>
         </div>
-
       </div>
-    <%end%>
+
   </div>
 </section>
 
-<section class="photo-section3">
-  <div class="container">
-    <div class="main-div-section3">
-      <div class="upload-photo-h2">
-        <h2 class="section3-header" style="margin-bottom: 2rem;">Upload Photo</h2>
-      </div>
-      <div class="upload-image-hint">
-        <div class="section3-image1-button1 ">
-          <img src="/assets/gallery.png" alt="Description of the image" class="section3-image">
-          <div class="section3-image-button">
-            <p class="btn btn-success section3-btn1">+ Add Photos</p>
-            <div class="section3-para1">(Max Limit 5 MB per image)</div>  
-          </div>
+      <section class="photo-section3">
+        <div class="container">
+          <div class="main-div-section3">
+            <div class="upload-photo-h2">
+              <h2 class="section3-header" style="margin-bottom: 2rem;">Upload Photo</h2>
+            </div>
+            <div class="upload-image-hint">
+              <div class="section3-image1-button1 ">
+                <img src="/assets/gallery.png" alt="Description of the image" class="section3-image">
+                <div class="section3-image-button">
+                  <%= form.label :photo, "+ Add Photos", class: "btn btn-success section3-btn1", for: "photoUpload" %>
+                  <div class="section3-para1">(Max Limit 5 MB per image)</div>  
+                  <%= form.file_field :photo, id: "photoUpload", accept: "image/*", multiple: true,style: "display: none;" %>
+                </div>
+              </div>
+              <div class="row photo-info">
+                <div class="col-md-4 col-md-offset-1">
+                  <i class="fa-regular fa-circle-check" style="color: #3eb549;"></i>
+                  <strong>Adding at least 8 pictures</strong> improves the chances for a quick sale.
+                </div>
+                <div class="col-md-5 col-md-offset-1">
+                  <i class="fa-regular fa-circle-check" style="color: #3eb549;"></i>
+                  <strong>Adding clear Front, Back and Interior pictures</strong> of your car increases the quality of your Ad and gets you notice more.
+                </div>
+                <div class="col-md-5 col-md-offset-4  mt-4" style="margin-left: 33.333%;">
+                  <i class="fa-regular fa-circle-check" style="color: #3eb549;"></i>
+                  <strong>Photos should be</strong> in 'jpeg, jpg, png, gif' format only
+                </div>
+              </div>
+            </div>
+          </div>  
         </div>
-        <div class="row photo-info">
-          <div class="col-md-4 col-md-offset-1">
-            <i class="fa-regular fa-circle-check" style="color: #3eb549;"></i>
-            <strong>Adding at least 8 pictures</strong> improves the chances for a quick sale.
-          </div>
-          <div class="col-md-5 col-md-offset-1">
-            <i class="fa-regular fa-circle-check" style="color: #3eb549;"></i>
-            <strong>Adding clear Front, Back and Interior pictures</strong> of your car increases the quality of your Ad and gets you notice more.
-          </div>
-          <div class="col-md-5 col-md-offset-4  mt-4" style="margin-left: 33.333%;">
-            <i class="fa-regular fa-circle-check" style="color: #3eb549;"></i>
-            <strong>Photos should be</strong> in 'jpeg, jpg, png, gif' format only
-          </div>
-        </div>
-      </div>
-    </div>  
-  </div>
-</section>
+      </section>
 
-<section class="car-info-section4">
-  <div class="container">
-    <fieldset>
-      <div class="section4-div1">
-        <h2>Contact Information<h2>
-        <div class="form-group row">
-          <%= label :Mobile_Number, "Mobile Number", class:"col-md-3 text-md-end contact-info" %>
-          <div class="col-md-5">
-            <span class="icon-section4"><i class="fa fa-th"></i></span>
-            <%= text_field(:vehicle, :M_N, class: "field-section4", placeholder:"Mobile number", id: "mobile_num_field") %>
-            <div class="number-error-message" style="color: red;"></div>
-          </div>
-          <div class="col-md-4 section4-mob-parent">
-            <div class="mobile-para" style="font-size: 1rem;">
-              <i class="fa fa-mobile  hint-icon"></i>
-              <span class="section4-mob-para">Enter a genuine 11 digit mobile no. with format 03XXXXXXXXX. All inquires will come on this number.<span>
+      <section class="car-info-section4">
+        <div class="container">
+          <fieldset>
+            <div class="section4-div1">
+              <h2>Contact Information<h2>
+              <div class="form-group row">
+                <%= label :mobile_number, "Mobile Number", class:"col-md-3 text-md-end contact-info" %>
+                <div class="col-md-5">
+                  <span class="icon-section4"><i class="fa fa-th"></i></span>
+                  <%= form.text_field :mobile_number, class: "field-section4", placeholder: "Mobile number", id: "mobile_num_field" %>
+                  <div class="number-error-message" style="color: red;"></div>
+                </div>
+                <div class="col-md-4 section4-mob-parent">
+                  <div class="mobile-para" style="font-size: 1rem;">
+                    <i class="fa fa-mobile  hint-icon"></i>
+                    <span class="section4-mob-para">Enter a genuine 11 digit mobile no. with format 03XXXXXXXXX. All inquires will come on this number.<span>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group row">
+                <%= label :secondary_number, "Secondary Number(Optional)", class:"col-md-3 text-md-end contact-info" %>
+                <div class="col-md-9 contact4-input">
+                  <%= form.text_field :secondary_number, class: "field2-section4", placeholder: "Secondary number" %>
+                </div>
+              </div>
+              <div class="form-group row">
+                <%= label :Whatapp_image, " ", class:"col-md-3" %>
+                <div class="col-md-9 contact4-input">
+                  <img src="/assets/whatapp.jpeg" alt="Description of the image" class="section4-whatsappimage">
+                  <span class="whatsapp4-icon">Allow WhatsApp Contact</span>
+                  <span class="slider_whatsapp round"></span>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+      </section>
+      <section class="section5">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12 text-end button-last">
+              <%= form.submit "SUBMIT & CONTINUE", class: "btn btn-success btn-lg section5-last-button" %>
             </div>
           </div>
         </div>
-        <div class="form-group row">
-          <%= label :Secondary_number, "Secondary Number(Optional)", class:"col-md-3 text-md-end contact-info" %>
-          <div class="col-md-9 contact4-input">
-            <%= text_field :post, :Secondary_number, class: "field2-section4", placeholder:"Secondary number" %>
-          </div>
-        </div>
-        <div class="form-group row">
-          <%= label :Whatapp_image, " ", class:"col-md-3" %>
-          <div class="col-md-9 contact4-input">
-            <img src="/assets/whatapp.jpeg" alt="Description of the image" class="section4-whatsappimage">
-            <span class="whatsapp4-icon">Allow WhatsApp Contact</span>
-            <span class="slider_whatsapp round"></span>
-          </div>
-        </div>
-      </div>
-    </fieldset>
-  </div>
-</section>
-<section class="section5">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12 text-end button-last">
-        <button type="button" class="btn btn-success btn-lg section5-last-button">SUBMIT & CONTINUE</button>
-      </div>
-    </div>
-  </div>
-</section>
+      </section>
+
+    <%end%>
