@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get 'used-cars/sell', to: 'used_cars#post_ad'
   get '/post-ad' , to: 'used_cars#new_ad'
   get '/change_password', to: 'users#edit_password', as: 'change_password'
+  post '/used-cars/sell' , to: 'used_cars#submit_form'
   patch '/change_password', to: 'users#update_password'
   get '/products/pakwheels-sell-it-for-me/new', to: 'products#pakwheels_sell_it_for_me_new'
 

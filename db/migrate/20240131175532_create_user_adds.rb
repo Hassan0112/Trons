@@ -5,10 +5,10 @@ class CreateUserAdds < ActiveRecord::Migration[6.1]
       t.string :registered_in
       t.string :exterior_color, null:false
       t.float :mileage, null:false
-      t.integer :price, null:false
+      t.bigint :price, null:false
       t.string :add_description, null:false
-      t.integer :mobile_number, null:false
-      t.integer :secondary_number
+      t.bigint :mobile_number, null:false
+      t.bigint :secondary_number
       t.references :user, null: false, foreign_key: true
 
       t.timestamps
