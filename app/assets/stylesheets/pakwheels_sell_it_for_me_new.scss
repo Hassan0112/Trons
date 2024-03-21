@@ -4,14 +4,14 @@
 div{
   display: block;
 }
-// body{
-//   font-family: "Lato",Sans-Serif;
-//   font-size: 14px;
-//   line-height: 1.4287;
-//   color: #434343;
-//   background-color: #fff;
-//   font-weight: 400;
-// }
+body{
+  font-family: "Lato",Sans-Serif;
+  font-size: 14px;
+  line-height: 1.4287;
+  color: #434343;
+  background-color: #fff;
+  font-weight: 400;
+}
 .h1-class{
   color: #233d7b;
   font-size: 24px;
@@ -39,6 +39,7 @@ div{
   text-align: center;
   margin-left: 10%;
   margin-right: 10%;
+  
 }
 .unorder-list .list-item{
   list-style: none;
@@ -87,4 +88,11 @@ div{
 }
 .fa-check{
   color: #37a241;
+}
+.div-for-image{
+  width: 100%;
+}
+.car-sold-image{
+  max-width: 100%; 
+  height: auto;
 }
