@@ -17,57 +17,76 @@
 
                 <div class="form-group row">
                   <%= form.label :model_year, "Model Year <span class='star-color'>*</span>".html_safe, class:"col-md-4 text-end" %>
-                  <div class="col-md-8 ad-input ">
-                    <%= form.text_field :full_name, class: "form-control" %>
+                  <div class="col-md-8 ad-input" >
+                    <%= form.select :model_year,
+                      options_for_select(
+                        ['Year',2024,2023,2022,2021,2020,2019,2018,2017,2016,2015,2014,
+                        2013,2012,2011,2010,2009,2008,2007,2006,2005,2004,2003,2002,2001,2000]), {},
+                      class: "form-control form-select"
+                    %>          
                   </div>
                 </div>
 
                 <div class="form-group row">
-                  <%= form.label :registered_in, "Registered In <span class='star-color'>*</span>".html_safe, class:"col-md-4 text-end" %>
+                  <%= form.label :car_info, "Car Info <span class='star-color'>*</span>".html_safe, class:"col-md-4 text-end" %>
                   <div class="col-md-8 ad-input ">
-                    <%= form.text_field :full_name, class: "form-control" %>
+                    <%= form.text_field :full_name, class: "form-control", placeholder: "Make/Model" %>
+                  </div>
+                  
+                </div>
+
+                <div class="form-group row">
+                  <%= form.label :registered_in, "Registered In", class:"col-md-4 text-end" %>
+                  <div class="col-md-8 ad-input ">
+                    <%= form.select :registered_in,
+                      options_for_select(  @registeration + ["Province"] + @provinces + ["Popular Cities"] + @popular_cities + [ "Other Cities" ] + @other_cities), {include_blank: "Un-Registered"},
+                      class: "form-control form-select"
+                    %>
                   </div>
                 </div>
 
                 <div class="form-group row">
                   <%= form.label :assembly, "Assembly <span class='star-color'>*</span>".html_safe, class:"col-md-4 text-end" %>
                   <div class="col-md-8 ad-input ">
-                    <%= form.text_field :full_name, class: "form-control" %>
+                    <%= form.select :assembly,
+                      options_for_select(['Local','Imported']), {},
+                      class: "form-control form-select" 
+                    %>
                   </div>
                 </div>
 
                 <div class="form-group row">
                   <%= form.label :location, "Location <span class='star-color'>*</span>".html_safe, class:"col-md-4 text-end" %>
                   <div class="col-md-8 ad-input ">
-                    <%= form.text_field :full_name, class: "form-control" %>
+                    <%= form.text_field :full_name, class: "form-control", placeholder: "Location" %>
                   </div>
                 </div>
 
                 <div class="form-group row">
                   <%= form.label :address, "Address <span class='star-color'>*</span>".html_safe, class:"col-md-4 text-end" %>
                   <div class="col-md-8 ad-input ">
-                    <%= form.text_field :full_name, class: "form-control" %>
+                    <%= form.text_field :full_name, class: "form-control", placeholder: "Address" %>
                   </div>
                 </div>
 
                 <div class="form-group row">
                   <%= form.label :inspection_slot, "Inspection Slot <span class='star-color'>*</span>".html_safe, class:"col-md-4 text-end" %>
                   <div class="col-md-8 ad-input ">
-                    <%= form.text_field :full_name, class: "form-control" %>
+                    <%= form.text_field :full_name, class: "form-control", placeholder: "Inspection Slot" %>
                   </div>
                 </div>
 
                 <div class="form-group row">
                   <%= form.label :name, "Name <span class='star-color'>*</span>".html_safe, class:"col-md-4 text-end" %>
                   <div class="col-md-8 ad-input ">
-                    <%= form.text_field :full_name, class: "form-control" %>
+                    <%= form.text_field :full_name, class: "form-control", placeholder: "Full Name" %>
                   </div>
                 </div>
 
                 <div class="form-group row">
                   <%= form.label :phone, "Phone <span class='star-color'>*</span>".html_safe, class:"col-md-4 text-end" %>
                   <div class="col-md-8 ad-input ">
-                    <%= form.text_field :full_name, class: "form-control" %>
+                    <%= form.text_field :full_name, class: "form-control", placeholder: "Mobile Number" %>
                   </div>
                 </div>
 
@@ -84,7 +103,9 @@
               <div class="col-md-4">
                 <div class="vertical-line">
                   <div class="container-2">
-                    <img src="/assets/sell-it-for-me-page.png" alt="Description of the image">
+                    <div class="div-for-image">
+                      <img src="/assets/sell-it-for-me-page.png" alt="Description of the image" class="car-sold-image">
+                    </div>
                     <p class="adjust-text-second-section">Let PakWheels Help You To Sell Your Car!</p>
                     <ul class="unorder-list">
                       <li class="list-item">
@@ -111,10 +132,11 @@
                 </div>
               </div>
             </div>
+
             <hr class="horizontal-line">
             <div class="content-after-sections">
               <button type="button" class="btn btn-success btn-lg">Continue</button>
-              <span>&nbsp &nbsp Not intersted?&nbsp Post a normal Ad</span>
+              <span>&nbsp &nbsp Not intersted?&nbsp <a href="/post-ad">Post a normal Ad</a></span>
             </div>
           </div>
         <%end%>
