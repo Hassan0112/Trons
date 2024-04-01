@@ -1,5 +1,6 @@
 import 'jquery';
 import 'popper.js';
+import "@fortawesome/fontawesome-free/css/all.css";
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import 'select2/dist/js/select2.min.js';
 import './sign_up';
