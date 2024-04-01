@@ -11,12 +11,10 @@ class UsedCarsController < ApplicationController
 
   def submit_form
     @user_add = UserAdd.new(user_add_params)
-    if @user_add.images.blank?
-      @user_add.errors.add(:images, "can't be blank")
-    end
     if @user_add.save
-      redirect_to used_cars_sell_path, notice:"Car Add Submitted Sucessfully."
+      redirect_to used_cars_sell_path, notice: "Car Add Submitted Successfully."
     else
+      flash.now[:alert] = "Failed to submit car ad. Please check your inputs."
       render :new_ad
     end
   end
@@ -36,6 +34,6 @@ class UsedCarsController < ApplicationController
   end
 
   def user_add_params
-    params.require(:user_add).permit(:city, :registered_in, :exterior_color, :mileage, :price, :add_description, :mobile_number, :secondary_number,:images, :user_id)
+    params.require(:user_add).permit(:city, :registered_in, :exterior_color, :mileage, :price, :add_description, :mobile_number, :secondary_number, :user_id, images: [])
   end
 end

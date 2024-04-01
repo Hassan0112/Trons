@@ -36,10 +36,19 @@ gem 'select2-rails'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
+#Spec Controller testing Gem
+gem 'rails-controller-testing'
+
+#gem faker for testing 
+gem 'faker'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  # REpec Gem for testing App
+  gem 'rspec-rails', '~> 6.1.0'
+  # FactoryBot for creating sample data in tests
+  gem 'factory_bot_rails'
 end
 
 group :development do

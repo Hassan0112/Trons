@@ -174,9 +174,9 @@
               <div class="section3-image1-button1 ">
                 <img src="/assets/gallery.png" alt="Description of the image" class="section3-image">
                 <div class="section3-image-button">
-                  <%= form.label :photo, "+ Add Photos", class: "btn btn-success section3-btn1", for: "photoUpload" %>
+                  <%= form.label :images, "+ Add Photos", class: "btn btn-success section3-btn1", for: "photoUpload" %>
                   <div class="section3-para1">(Max Limit 5 MB per image)</div>  
-                  <%= form.file_field :photo, id: "photoUpload", accept: "image/*", multiple: true,style: "display: none;" %>
+                  <%= form.file_field :images, id: "photoUpload", accept: "image/*", multiple: true,style: "display: none;" %>
                 </div>
               </div>
               <div class="row photo-info">
