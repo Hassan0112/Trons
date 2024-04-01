@@ -3,8 +3,9 @@ require 'rails_helper'
 RSpec.describe UsedCarsController do
   include Devise::Test::ControllerHelpers
 
+  let(:user)  {create(:user)}
+
   describe "GET #post_ad" do
-    let(:user)  {FactoryBot.create(:user)}
     it "returns http success" do
       sign_in user
       get :post_ad
@@ -13,7 +14,6 @@ RSpec.describe UsedCarsController do
   end
 
   describe "GET #new_ad" do
-    let(:user)  {FactoryBot.create(:user)}
     it "assigns a new UserAdd to @user_add" do
       sign_in user
       get :new_ad
@@ -25,7 +25,6 @@ RSpec.describe UsedCarsController do
 
   describe "POST #submit_form" do
     context "with valid parameters" do
-      let(:user) { FactoryBot.create(:user) }
       let(:image_paths) do
         [
           Rails.root.join('app', 'assets', 'images', 'carphoto.jpeg'),
@@ -55,8 +54,6 @@ RSpec.describe UsedCarsController do
     end
 
     context "with invalid params" do
-      let(:user) { FactoryBot.create(:user)}
-
       let(:invalid_params) { { user_add: { city: "", registered_in: "Un-Rigistered", user_id: user.id } } }
 
       it "does not create a new advertisement" do
