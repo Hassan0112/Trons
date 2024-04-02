@@ -15,7 +15,10 @@ $(function() {
   function formatResult2(result) {
 
     if (result.text === "Un-Registred" || result.text === "Province" ||result.text === "Popular Cities" || result.text === "Other Cities") {
-      return $('<span style="font-weight:bold; margin-left:-1%;">' + result.text + '</span>');
+      return $('<span style="font-weight:bold;">' + result.text + '</span>');
+    }
+    else if (result.text !== "Un-Registred" || result.text !== "Province" ||result.text !== "Popular Cities" || result.text !== "Other Cities") {
+      return $('<span style="margin-left: 7px">' + result.text + '</span>');
     }
   
     return result.text;

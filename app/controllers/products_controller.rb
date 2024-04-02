@@ -16,5 +16,6 @@ class ProductsController < ApplicationController
       cities.push(CS.cities(state))
     end
     @other_cities = cities.flatten - @popular_cities
+    @years = (2000..Time.current.year).to_a.reverse
   end
 end

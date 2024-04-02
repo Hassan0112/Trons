@@ -13,8 +13,8 @@ body{
   font-weight: 400;
 }
 .main-container{
-  margin-left: 10%;
-  margin-right: 10%;
+  margin-left: 125px;
+  margin-right: 125px;
 }
 .h1-class{
   color: #233d7b;
@@ -24,31 +24,30 @@ body{
   margin-bottom: 5px;
 }
 .container{
-  margin-top: 4%;
+  margin-top: 40px;
   padding-left: 10px;
   padding-right: 10px;
 }
 .form-container{
   border-radius: 2px;
   border: 1px solid #e6e6e6;
-  padding-left: 4%;
-  padding-top: 3%;
-  margin-bottom: 5%;
+  padding-left: 20px;
+  padding-top: 30px;
+  margin-bottom: 70px;
 }
 .container-2{
   justify-content: center;
   text-align: center;
-  margin-left: 10%;
-  margin-right: 10%;
-  
+  margin-left: 20px;
+  margin-right: 20px; 
 }
 .unorder-list .list-item{
   list-style: none;
   display: block;
-  margin-bottom: 5%;
+  margin-bottom: 10px;
   text-align: start;
-  margin-left: 5%;
-  margin-right: 15%;
+  margin-left: 15px;
+  margin-right: 25px;
 }
 .eight-columns{
   font-size: 16px;
@@ -73,22 +72,22 @@ body{
   border-left: 1px solid #e6e6e6;
   height: 97%;
   float: left;
-  margin-left: -2%;
+  margin-left: -10px;
 }
 .adjust-text-second-section{
-  margin-left: 15%;
-  margin-right: 15%;
+  margin-left: 50px;
+  margin-right: 50px;
   font-weight: bold;
 }
 .adjust-text-first-section{
-  margin-right: 8%;
-  margin-left: 3.5%;
-  margin-bottom: 5%;
+  margin-right: 25px;
+  margin-left: 20px;
+  margin-bottom: 30px;
   font-size: 14px;
 }
 .horizontal-line{
   border-left: 6px solid #e6e6e6;
-  margin-right: 5%;
+  margin-right: 35px;
 }
 .btn-success{
   color: #fff;
@@ -96,18 +95,18 @@ body{
   border-color: #37a241;
 }
 .content-after-sections{
-  margin-left: 30%;
-  margin-bottom: 3%;
+  margin-left: 280px;
+  margin-bottom: 30px;
 }
 .fa-check{
   color: #37a241;
 }
 .div-for-image{
-  margin-top: 7%;
+  margin-top: 20px;
   width: 90%;
 }
 .car-sold-image{
-  max-width: 100%; 
+  max-width: 90%; 
   height: auto;
 }
 .error-message {
@@ -137,7 +136,7 @@ body{
   border-color: #e6e6e6;
 }
 .select2-container--default .select2-search--dropdown .select2-search__field {
-  margin-left: -1.5%;
+  margin-left: -6px;
   width: 103%;
   height: 100%;
   box-shadow: none;
@@ -149,15 +148,27 @@ body{
   padding: 15px;
   background: #cbd5e9;
 }
-
+@media (min-width: 768px)
+{
+  .container-2{
+    justify-content: center;
+    text-align: center;
+    margin-left: -7px;
+    margin-right: 20px; 
+  }
+  .content-after-sections{
+    margin-left: 60px;
+    margin-bottom: 30px;
+  }
+}
 @media only screen and (min-width: 310px) and (max-width: 767px)
 {
   body{
     font-size: 0.5rem;
   }
   .main-container{
-    margin-left: 10%;
-    margin-right: 10%;
+    margin-left: 30px;
+    margin-right: 30px;
   }
   .h1-class{
     font-size: 1.3rem;
@@ -170,9 +181,9 @@ body{
     padding-right: 0.5rem;
   }
   .form-container{
-    padding-left: 4%;
-    padding-top: 3%;
-    margin-bottom: 5%;
+    padding-left: 15px;
+    padding-top: 10px;
+    margin-bottom: 10px;
   }
   .ad-input input::placeholder {
     font-size: 0.6rem; 
@@ -181,11 +192,11 @@ body{
     font-size: 0.8rem;
   }
   .ad-input{
-    margin-left: 2%;
+    margin-left: 4px;
   }
   .tex-end{
     text-align: start;
-    margin-left: 4%;
+    margin-left: 8px;
   }
   .select2-container .select2-selection--single .select2-selection__arrow {
     right: 10px;
@@ -198,55 +209,55 @@ body{
   .container-2{
     justify-content: center;
     text-align: center;
-    margin-left: 25%;
-    margin-right: 10%; 
+    margin-left: 50px;
+    margin-right: 10px; 
   }
   .vertical-line{
     border-left: 0px solid #e6e6e6;
   }
   .right-list{
-    margin-left: -50%;
+    margin-left: -80px;
   }
   .unorder-list .list-item{
     list-style: none;
     display: block;
-    margin-bottom: 5%;
+    margin-bottom: 10px;
     text-align: start;
-    margin-left: 28%;
+    margin-left: 60px;
     font-size: 0.8rem;
   }
   .eight-columns{
     font-size: 0.6rem;
   }
   .adjust-text-second-section{
-    margin-left: 5%;
+    margin-left: 10px;
     font-weight: bold;
     font-size: 0.8rem;
   }
   .adjust-text-first-section{
-    margin-right: 8%;
-    margin-left: 3.5%;
-    margin-bottom: 5%;
+    margin-right: 15px;
+    margin-left: 5px;
+    margin-bottom: 10px;
     font-size: 0.8rem;
   }
   .horizontal-line{
     border-left: 6px solid #e6e6e6;
-    margin-right: 5%;
+    margin-right: 20px;
   }
   .content-after-sections{
-    margin-left: 25%;
-    margin-bottom: 3%;
+    margin-left: 40px;
+    margin-bottom: 15px;
     font-size: 0.8rem;
   }
   .fa-check{
     color: #37a241;
   }
   .text-normal-ad{
-    margin-left: 15%;
+    margin-left: 70px;
   }
   .div-for-image{
     width: 100%;
-    margin-top: 20%;
+    margin-top: 50px;
   }
   .car-sold-image{
     max-width: 90%; 
@@ -256,15 +267,11 @@ body{
     font-size: 0.6rem;
     padding: 0.3rem 0.3rem;
   }
-  .post-normal-ad{
-    margin-top: 4%;
-    margin-left: 20%;
-  }
 }
 @media (min-width: 1540px)
 {
   .main-container{
-    margin-left: 27%;
-    margin-right: 27%;
+    margin-left: 700px;
+    margin-right: 700px;
   }
 }
