@@ -7,7 +7,7 @@ class ProductsController < ApplicationController
   private
    
   def set_instance_variables
-    @registeration = ["Un-Rigistered"]
+    @registeration = ["Un-Registered"]
     @provinces = ["Punjab", "Sindh"]
     cities = []
     @popular_cities = ["Karachi", "Lahore", "Islamabad", "Rawalpindi", "Peshawar"]
