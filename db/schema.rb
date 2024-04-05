@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_01_31_175532) do
+ActiveRecord::Schema.define(version: 2024_04_05_184736) do
 
   create_table "active_storage_attachments", charset: "utf8mb4", force: :cascade do |t|
     t.string "name", null: false
@@ -40,15 +40,31 @@ ActiveRecord::Schema.define(version: 2024_01_31_175532) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "sellitforme_forms", charset: "utf8mb4", force: :cascade do |t|
+    t.integer "model_year"
+    t.string "car_info"
+    t.string "registered_in"
+    t.string "assembly"
+    t.string "location"
+    t.string "address"
+    t.string "inspection_slot"
+    t.string "full_name"
+    t.string "phone"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_sellitforme_forms_on_user_id"
+  end
+
   create_table "user_adds", charset: "utf8mb4", force: :cascade do |t|
     t.string "city", null: false
     t.string "registered_in"
     t.string "exterior_color", null: false
     t.float "mileage", null: false
-    t.bigint "price", null: false
+    t.integer "price", null: false
     t.string "add_description", null: false
-    t.bigint "mobile_number", null: false
-    t.bigint "secondary_number"
+    t.integer "mobile_number", null: false
+    t.integer "secondary_number"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -63,12 +79,12 @@ ActiveRecord::Schema.define(version: 2024_01_31_175532) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "full_name"
     t.string "gender"
     t.date "dob"
     t.string "country"
     t.string "city"
     t.string "username"
+    t.string "full_name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["username"], name: "index_users_on_username", unique: true
@@ -76,5 +92,6 @@ ActiveRecord::Schema.define(version: 2024_01_31_175532) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "sellitforme_forms", "users"
   add_foreign_key "user_adds", "users"
 end

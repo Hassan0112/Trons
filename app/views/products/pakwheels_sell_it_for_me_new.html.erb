@@ -5,7 +5,7 @@
       <h1 class="h1-class">Get your car registered in PakWheels Sell It For Me</h1>
 
       <div>
-        <%= form_with(model:@current_user, url: products_pakwheels_sell_it_for_me_new_path, method: :post) do |form|%>
+        <%= form_with(model:@sellitforme_form, url: submit_sellitforme_form_path, method: :post) do |form|%>
           <div class="form-container">
             <div class="row">
               <div class="col-md-8 col-lg-8 col-sm-12 col-12 eight-columns">
@@ -135,7 +135,7 @@
             </div>
             <hr class="horizontal-line">
             <div class="content-after-sections">
-              <button type="button" class="btn btn-success btn-lg btn-smaller" id="continueButton" disabled>Continue</button>
+              <%= form.submit "Continue", class: "btn btn-success btn-lg btn-smaller", id: "continueButton", disabled: true %>
               <span>&nbsp &nbsp Not intersted?&nbsp <a class ="text-normal-ad" href="/post-ad">Post a normal Ad</a></span>
             </div>
           </div>
