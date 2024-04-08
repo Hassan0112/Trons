@@ -11,8 +11,8 @@ class ProductsController < ApplicationController
     if @sellitforme_form.save
       redirect_to root_path, notice: "form data was saved successfully"
     else
-      flash.now[:alert] = "something went wrong. Failed to saved form data"
-      redirect_to pakwheels_sell_it_for_me_new
+      flash.now[:alert] = @sellitforme_form.errors.full_messages
+      render 'pakwheels_sell_it_for_me_new'
     end
   end
 

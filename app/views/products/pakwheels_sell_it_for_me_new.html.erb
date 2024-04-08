@@ -5,6 +5,18 @@
       <h1 class="h1-class">Get your car registered in PakWheels Sell It For Me</h1>
 
       <div>
+        <% if @sellitforme_form.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@sellitforme_form.errors.count, "error") %> prohibited this model from being saved:</h2>
+            <ul>
+              <% @sellitforme_form.errors.each do |attribute, message| %>
+                <% if @sellitforme_form.errors[attribute].any? && @sellitforme_form[attribute].blank? %>
+                  <li><%= "#{attribute.to_s.humanize} #{message}" %></li>
+                <% end %>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
         <%= form_with(model:@sellitforme_form, url: submit_sellitforme_form_path, method: :post) do |form|%>
           <div class="form-container">
             <div class="row">

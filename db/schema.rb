@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_04_05_184736) do
+ActiveRecord::Schema.define(version: 2024_04_08_185249) do
 
   create_table "active_storage_attachments", charset: "utf8mb4", force: :cascade do |t|
     t.string "name", null: false
@@ -41,15 +41,15 @@ ActiveRecord::Schema.define(version: 2024_04_05_184736) do
   end
 
   create_table "sellitforme_forms", charset: "utf8mb4", force: :cascade do |t|
-    t.integer "model_year"
-    t.string "car_info"
+    t.integer "model_year", null: false
+    t.string "car_info", null: false
     t.string "registered_in"
-    t.string "assembly"
-    t.string "location"
-    t.string "address"
-    t.string "inspection_slot"
-    t.string "full_name"
-    t.string "phone"
+    t.string "assembly", null: false
+    t.string "location", null: false
+    t.string "address", null: false
+    t.string "inspection_slot", null: false
+    t.string "full_name", null: false
+    t.string "phone", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -61,10 +61,10 @@ ActiveRecord::Schema.define(version: 2024_04_05_184736) do
     t.string "registered_in"
     t.string "exterior_color", null: false
     t.float "mileage", null: false
-    t.integer "price", null: false
+    t.bigint "price", null: false
     t.string "add_description", null: false
-    t.integer "mobile_number", null: false
-    t.integer "secondary_number"
+    t.bigint "mobile_number", null: false
+    t.bigint "secondary_number"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
