@@ -66,3 +66,46 @@
 .design-27{
   background-color: #f2f3f3;
 }
+.container-width-28{
+  width: 1020px;
+}
+.design-28{
+  display: flex;
+  font-family: sans-serif;
+  padding: 40px 0px;
+  background-color: #fff;
+}
+.design-28 .row {
+  display: flex;
+  flex-wrap: wrap;
+}
+.testimonials-col{
+  flex: 0 0 calc(25% - 20px);
+  border: 1px solid #e8e8e8;
+  margin: 5px;
+  background-color: #ffffff;
+  padding: 15px;
+  border-radius: 5px;
+}
+.fsize-28 {
+  margin: 0px 0px 10px;
+  font-size: 16px;
+}
+.typeof-insurance-img{
+  display: flex;
+  height: 65px;
+  margin-bottom: 2px;
+}
+.design-card-paras{
+  color: #858585;
+  margin-bottom: 0 !important;
+}
+.design-25-lst-para{
+  margin-top: 30px;
+  margin-bottom: 5px;
+}
+.a-card{
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
