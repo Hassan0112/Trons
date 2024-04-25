@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, except: [:new, :create]
 
-
   def new
     @user = User.new
   end
@@ -53,10 +52,8 @@ class UsersController < ApplicationController
   
   def update_password
     @user = current_user
-  
     if @user.valid_password?(user_params[:current_password])
       if @user.update_with_password(user_params)
-        @user.save
         redirect_to root_path, notice: 'Password successfully updated.'
       else
         flash.now[:custom_alert] = @user.errors.full_messages.join(", ") unless @user.errors.details.key?(:current_password)
@@ -72,6 +69,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation, :full_name, :profile_picture)
+    params.require(:user).permit(:email, :password, :password_confirmation, :full_name, :profile_picture, :current_password)
   end
 end
