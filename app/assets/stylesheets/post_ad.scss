@@ -4,9 +4,10 @@
   width: 100%;
   margin-top: -40px;
 }
-.image-content-26 svg {
+.image-jpg-26{
+  height: 55px;
   width: 55px;
-  height: 55px
+  border-radius: 50%;
 }
 .h2-26{
   margin-bottom: 20px;
@@ -34,12 +35,13 @@
   margin-bottom: 50px;
 }
 .design-26{
-  background-color: #f2f3f3;
+  background-color: #fff;
+  padding: 40px 0px;
 }
 .card-26{
   padding-right: 0;
   --bs-gutter-x: 0;
-  background-color: #f2f3f3;
+  background-color: #fff;
 }
 .para-26{
   font-family: sans-serif;
@@ -49,11 +51,21 @@
 .h5-26{
   font-size: 18px;
 }
+.design-27{
+  padding: 40px 0px;
+}
 .h3-design-27{
   font-size: 22px;
   font-weight: 700;
   margin-top: 20px;
   margin-bottom: 10px;
+}
+.image-jpg-27{
+  height: 70px;
+  width: 70px;
+}
+.design-27-mtop{
+  margin-top: 30px;
 }
 .c-design-27{
   font-family: sans-serif;
@@ -91,6 +103,22 @@
   margin: 0px 0px 10px;
   font-size: 16px;
 }
+.custom-size-28-1{
+ height: 48px;
+ width: 48px;
+}
+.custom-size-28-2{
+  height: 46px;
+  width: 46px;
+ }
+ .custom-size-28-3{
+  height: 44px;
+  width: 45px;
+ }
+ .custom-size-28-4{
+  height: 57px;
+  width: 48px;
+ }
 .typeof-insurance-img{
   display: flex;
   height: 65px;
@@ -227,4 +255,7 @@
 }
 .review-car{
   color: #7b8397;
+}
+.container-width26{
+  max-width: 1020px;
 }
