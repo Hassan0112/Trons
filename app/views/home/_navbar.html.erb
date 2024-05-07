@@ -38,9 +38,15 @@
 
   <div class="main-nav clearfix">
     <nav class="navbar navbar-expand-lg">
-      <div class="">
+      <div class="container-fluid">
+        <%= link_to root_path, class: "navbar-brand" do %>
+          <%= image_tag "/assets/navbar-image.svg", alt: "Description of the image", class: "navbar-image" %>
+        <% end %>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavSupportedContent" aria-controls="mainNavSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
         <div class="collapse navbar-collapse" id="mainNavSupportedContent">
-          <ul class="navbar-nav float-right">
+          <ul class="navbar-nav me-20 mb-2 mb-lg-0">
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Used Cars
@@ -94,16 +100,8 @@
             <li class="nav-item">
               <a class="nav-link" href="#">Blog</a>
             </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                More
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
-              </ul>
+            <li class="nav-item">
+              <a class="nav-link" href="#">More</a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle nav-post" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -112,7 +110,7 @@
               <ul class="dropdown-menu post-buttton">
                 <li><%= link_to 'Sell Your Car', used_cars_sell_path, class: 'dropdown-item' %></li>
                 <li><a class="dropdown-item" href="#">Sell Your Bike</a></li>
-                <li><a class="dropdown-item" href="#">Sell Accessary</a></li>
+                <li><a class="dropdown-item" href="#">Sell Accessory</a></li>
               </ul>
             </li>
           </ul>
