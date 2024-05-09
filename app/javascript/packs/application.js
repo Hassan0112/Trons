@@ -11,3 +11,4 @@ import './navbar_sign_up.js';
 import './new_ad.js';
 import './edit_password.js';
 import './pakwheels_sell_it_for_me_new.js';
+import './post_ad.js';
