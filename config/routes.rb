@@ -13,5 +13,6 @@ Rails.application.routes.draw do
   post '/used-cars/sell' , to: 'used_cars#submit_form'
   patch '/change_password', to: 'users#update_password'
   get '/products/pakwheels-sell-it-for-me/new', to: 'products#pakwheels_sell_it_for_me_new'
+  post '/products/pakwheels-sell-it-for-me/new', to: 'products#submit_form', as: 'submit_sellitforme_form'
 
 end
