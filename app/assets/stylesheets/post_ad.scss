@@ -345,3 +345,40 @@
 .review-car-p33{
   margin-bottom: 0px;
 }
+.design-34{
+  padding: 40px 0px;
+  font-family: sans-serif;
+  background-color: #f2f3f3;
+}
+.accordion {
+  margin: 20px auto;
+}
+
+.question {
+  font-size: 16px;
+  font-weight: 600;
+  color: #434343;
+  background-color: #f4f4f4;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 18px;
+  margin: 20px 0px 0px;
+  cursor: pointer;
+  position: relative;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+}
+
+.answer {
+  display: none;
+  font-size: 15px;
+  padding: 15px 18px;
+  border-top: 1px solid #e6e6e6;
+  border: 1px solid #e6e6e6;
+  background-color: #f2f3f3;
+}
