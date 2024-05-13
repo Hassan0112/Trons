@@ -29,7 +29,7 @@
 
                 <div class="form-group row">
                   <%= form.label :model_year, "Model Year <span class='star-color'>*</span>".html_safe, class:"col-md-4 col-lg-4 col-sm-6 col-6 tex-end" %>
-                  <div class="col-md-7 col-lg-7 col-sm-10 col-11 ad-input" >
+                  <div class="col-md-7 col-lg-7 col-sm-10 col-11 ad-input-sell" >
                     <%= form.select :model_year,
                       options_for_select(
                         ['Year'] + @years), {},
@@ -40,14 +40,14 @@
 
                 <div class="form-group row">
                   <%= form.label :car_info, "Car Info <span class='star-color'>*</span>".html_safe, class:"col-md-4 col-lg-4 col-sm-6 col-6 tex-end" %>
-                  <div class="col-md-7 col-lg-7 col-sm-10 col-11 ad-input ">
+                  <div class="col-md-7 col-lg-7 col-sm-10 col-11 ad-input-sell ">
                     <%= form.text_field :car_info, class: "form-control", placeholder: "Make/Model" %>
                   </div> 
                 </div>
 
                 <div class="form-group row">
                   <%= form.label :registered_in, "Registered In", class:"col-md-4 col-lg-4 col-sm-6 col-6 tex-end" %>
-                  <div class="col-md-7 col-lg-7 col-sm-10 col-11 ad-input ">
+                  <div class="col-md-7 col-lg-7 col-sm-10 col-11 ad-input-sell ">
                     <%= form.select :registered_in,
                     options_for_select( @registeration + ["Province"] + @provinces + ["Popular Cities"] + @popular_cities + [ "Other Cities" ] + @other_cities), {include_blank: "Un-Registred"},
                     class: "form-control select2 form-select",  id: "city-Dropdown"
@@ -57,7 +57,7 @@
 
                 <div class="form-group row">
                   <%= form.label :assembly, "Assembly <span class='star-color'>*</span>".html_safe, class:"col-md-4 col-lg-4 col-sm-6 col-6 tex-end" %>
-                  <div class="col-md-7 col-lg-7 col-sm-10 col-11 ad-input" id="assembly-input">
+                  <div class="col-md-7 col-lg-7 col-sm-10 col-11 ad-input-sell" id="assembly-input">
                     <%= form.select :assembly,
                       options_for_select(['Local','Imported']), {},
                       class: "form-control form-select select2 assembly-dropdown", id: "bap"
@@ -67,14 +67,14 @@
 
                 <div class="form-group row">
                   <%= form.label :location, "Location <span class='star-color'>*</span>".html_safe, class:"col-md-4 col-lg-4 col-sm-6 col-6 tex-end" %>
-                  <div class="col-md-7 col-lg-7 col-sm-10 col-11 ad-input ">
+                  <div class="col-md-7 col-lg-7 col-sm-10 col-11 ad-input-sell ">
                     <%= form.text_field :location, class: "form-control", placeholder: "Location" %>
                   </div>
                 </div>
 
                 <div class="form-group row">
                   <%= form.label :address, "Address <span class='star-color'>*</span>".html_safe, class:"col-md-4 col-lg-4 col-sm-6 col-6 tex-end" %>
-                  <div class="col-md-7 col-lg-7 col-sm-10 col-11 ad-input ">
+                  <div class="col-md-7 col-lg-7 col-sm-10 col-11 ad-input-sell ">
                     <%= form.text_field :address, class: "form-control", placeholder: "Address", id: "address-input"%>
                     <p id="address-error" class="error-message"></p>
                   </div>
@@ -82,14 +82,14 @@
 
                 <div class="form-group row">
                   <%= form.label :inspection_slot, "Inspection Slot <span class='star-color'>*</span>".html_safe, class:"col-md-4 col-lg-4 col-sm-6 col-6 tex-end" %>
-                  <div class="col-md-7 col-lg-7 col-sm-10 col-11 ad-input ">
+                  <div class="col-md-7 col-lg-7 col-sm-10 col-11 ad-input-sell ">
                     <%= form.text_field :inspection_slot, class: "form-control", placeholder: "Inspection Slot" %>
                   </div>
                 </div>
 
                 <div class="form-group row">
                   <%= form.label :name, "Name <span class='star-color'>*</span>".html_safe, class:"col-md-4 col-lg-4 col-sm-6 col-6 tex-end" %>
-                  <div class="col-md-7 col-lg-7 col-sm-10 col-11 ad-input ">
+                  <div class="col-md-7 col-lg-7 col-sm-10 col-11 ad-input-sell ">
                     <%= form.text_field :full_name, class: "form-control", placeholder: "Full Name", id: "name-input" %>
                     <p id="name-error" class="error-message"></p>
                   </div>
@@ -97,7 +97,7 @@
 
                 <div class="form-group row">
                   <%= form.label :phone, "Phone <span class='star-color'>*</span>".html_safe, class:"col-md-4 col-lg-4 col-sm-6 col-6 tex-end" %>
-                  <div class="col-md-7 col-lg-7 col-sm-10 col-11 ad-input ">
+                  <div class="col-md-7 col-lg-7 col-sm-10 col-11 ad-input-sell ">
                     <%= form.text_field :phone, class: "form-control", placeholder: "Mobile Number", id: "phone-input" %>
                     <p id="phone-error" class="error-message"></p>
                   </div>
