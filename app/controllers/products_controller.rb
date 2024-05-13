@@ -7,11 +7,11 @@ class ProductsController < ApplicationController
   end
 
   def submit_form
-    @sellitforme_form = SellitformeForm.new(sellitforme_form_params)
-    if @sellitforme_form.save
+    sellitforme_form = SellitformeForm.new(sellitforme_form_params)
+    if sellitforme_form.save
       redirect_to root_path, notice: "form data was saved successfully"
     else
-      flash.now[:alert] = @sellitforme_form.errors.full_messages
+      flash.now[:alert] = sellitforme_form.errors.full_messages
       render 'pakwheels_sell_it_for_me_new'
     end
   end
