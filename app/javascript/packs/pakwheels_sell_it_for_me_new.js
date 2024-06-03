@@ -109,3 +109,30 @@ $(function() {
     }
   }); 
 });
+
+$(document).ready(function() {
+  $('#resendCodeButton').click(function(event) {
+    event.preventDefault();
+    
+    $.post('/resend_code', function(data) {
+      startTimer();
+    }).fail(function() {
+      alert("Failed to resend verification code. Please try again.");
+    });
+  });
+
+  function startTimer() {
+    $('#resendCodeButton').prop('disabled', true);
+    let count = 30;
+    let interval = setInterval(function() {
+      if (count <= 0) {
+        clearInterval(interval);
+        $('#resendCodeButton').prop('disabled', false);
+        $('#countdownTimer').text("");
+      } else {
+        $('#countdownTimer').text(count + " seconds remaining");
+        count--;
+      }
+    }, 1000);
+  }
+});

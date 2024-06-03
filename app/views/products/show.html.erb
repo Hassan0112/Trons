@@ -1,0 +1,27 @@
+<%= render 'users/backnavbar' %>
+<section class="form-design35">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 registration-span">
+        <div class="show35-pdd">
+          <h1 class="h1-show">Verify number</h1>
+          <p class="para-show"> A one-time password has been sent on the number. Please enter it below to verify your number</p>
+          <%= form_with(url: verify_code_path, method: :post, local: true) do |form| %>
+            <div class="form-group">
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"><i class="fa fa-phone"></i></span>
+                <%= form.text_field :verification_code, class: "form-control input-text-35", placeholder: "Enter code here", aria_label: "Verification code", aria_describedby: "basic-addon1" %>
+              </div>
+              <div class="generic-red error mt5"></div>
+            </div>
+            <div class="form-group">
+              <%= form.submit "Verify", class: "btn btn-primary btn-show-35", onclick: "submitForm()" %>
+              <%= button_to "Resend Code", resend_code_path, method: :post, class: "btn btn-link link-styled35", id: "resendCodeButton", onclick: "resendCode(); return false;" %>
+              <div class="link-styled35" id="countdownTimer"></div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

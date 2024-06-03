@@ -34,6 +34,9 @@ gem 'city-state'
 #For Another Select option in Dropdown 
 gem 'select2-rails'
 
+# gem Twilio
+gem 'twilio-ruby', '~> 7.0.2'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 #Spec Controller testing Gem
@@ -47,6 +50,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # REpec Gem for testing App
   gem 'rspec-rails', '~> 6.1.0'
+  gem 'dotenv-rails'
   # FactoryBot for creating sample data in tests
   gem 'factory_bot_rails'
 end
