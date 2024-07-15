@@ -1,0 +1,28 @@
+<section class="form-design36-em">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 registration-span">
+        <div class="show36-pdd">
+          <h1 class="h1-verify-em">Enter Your Code</h1>
+          <p class="para-verfiy">Please enter the Code received on your email verification</p>
+          <%= form_with(url: confirm_verification_user_path(@user), method: :post, local: true) do |form| %>
+            <div class="form-group">
+              <div class="input-group mb-3 custom-input-em">
+                <%= form.text_field :verification_code, class: "form-control input-text-36", aria_label: "Verification code", aria_describedby: "basic-addon1" %>
+              </div>
+              <div class="generic-red error mt5"></div>
+            </div>
+            <div class="form-group">
+              <%= form.submit "Next", class: "btn btn-success btn-show-36", onclick: "submitForm()" %>
+              <div class="link-styled35" id="countdownTimer"></div>
+            </div>
+            <p class="resend text-align-left" id="didnt-get-code" style="text-align: left;">
+              Didn’t get the code? <a href="#" id="resend-link">Resend</a>
+            </p>
+            <p id="countdown-timer" style="text-align: left; display: none;">You can resend the code in <span id="countdown"></span> seconds.</p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

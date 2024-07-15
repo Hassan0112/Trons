@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root 'home#index'
-    get '/logout', to: 'session#logout', as: 'logout'  
+  get '/logout', to: 'session#logout', as: 'logout'  
   devise_for :users, controllers: { registrations: 'users' }
 
   get '/profile', to: 'users#edit'
@@ -19,4 +19,8 @@ Rails.application.routes.draw do
   post 'verify_code', to: 'products#verify_code'
   post 'resend_code', to: 'products#resend_code'
 
+  # Define routes with dynamic segments for verify and confirm_verification
+  get 'users/:id/verify', to: 'users#verify', as: 'verify'
+  post 'users/:id/confirm_verification', to: 'users#confirm_verification', as: 'confirm_verification_user'
+  post 'users/resend_verification_code', to: 'users#resend_verification_code', as: 'resend_verification_code'
 end
