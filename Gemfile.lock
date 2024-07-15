@@ -84,6 +84,7 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (>= 1.5, < 3.0)
       xpath (~> 3.2)
+    childprocess (5.0.0)
     city-state (1.1.0)
       rubyzip (>= 2.3)
     concurrent-ruby (1.2.2)
@@ -131,6 +132,11 @@ GEM
       thor (>= 0.14, < 2.0)
     jwt (2.8.1)
       base64
+    launchy (3.0.1)
+      addressable (~> 2.8)
+      childprocess (~> 5.0)
+    letter_opener (1.10.0)
+      launchy (>= 2.2, < 4)
     listen (3.8.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -317,6 +323,7 @@ DEPENDENCIES
   image_processing (~> 1.2)
   jbuilder (~> 2.7)
   jquery-rails
+  letter_opener
   listen (~> 3.3)
   mysql2
   puma (~> 5.0)

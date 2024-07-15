@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!, except: [:new, :create]
-
+  before_action :authenticate_user!, except: [:new, :create, :verify, :confirm_verification, :resend_verification_code]
+  skip_before_action :verify_authenticity_token, only: [:resend_verification_code]
 
   def new
     @user = User.new
@@ -15,14 +15,46 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to root_path, notice: 'User was successfully created.' }
+        session[:temporary_user_id] = @user.id
+        @verification_code_user = rand(1000..9999).to_s
+        session[:verification_code_em] = @verification_code_user
+        UserMailer.welcome_email(@user, @verification_code_user).deliver_now
+        flash[:notice] = 'User was successfully created. Please check your email for verification instructions.'
+        format.html { redirect_to verify_path(@user.id)}
         format.json { render json: @user, status: :created, location: @user }
       else
-
         format.html { render :new }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def verify
+    @user = User.find(session[:temporary_user_id])
+  end
+
+  def confirm_verification
+    @user = User.find(session[:temporary_user_id])
+    verification_data = session[:verification_code_em]
+
+    if session[:verification_code_em] == params[:verification_code]
+      @user.update(email_verified: true)
+      session.delete(:verification_code_em)
+      sign_in(@user) 
+      redirect_to root_path, notice: 'Email successfully verified.'
+    else
+      flash.now[:alert] = 'Invalid verification code.'
+      render :verify
+    end
+  end
+
+  def resend_verification_code
+    byebug
+    user = User.find(session[:temporary_user_id])
+    verification_code_user = rand(1000..9999).to_s
+    session[:verification_code_em] = verification_code_user
+    UserMailer.welcome_email(user, verification_code_user).deliver_now
+    render json: { success: true }
   end
 
   def edit
