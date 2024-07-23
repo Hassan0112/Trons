@@ -91,3 +91,129 @@
   border-bottom: 4px solid #b73439;
   min-width: 146px;
 }
+.right-margin-nav{
+  margin-right: 0px;
+}
+.navbar-image{
+  height: 50px;
+  width: 175px;
+}
+@media (min-width: 992px) and (max-width: 1024px){
+  .navbar-image{
+    height: 40px;
+    width: 90px;
+  }
+  .main-nav .navbar {
+    width: auto;
+  }
+  body{
+    font-size: x-small;
+  }
+  .main-nav .nav-link.nav-post{
+    width: min-content;
+  }
+  .container-fluid{
+    margin-left: 60px;
+  }
+}
+@media (min-width: 1025px) and (max-width: 1064px){
+  .navbar-image{
+    height: 40px;
+    width: 90px;
+  }
+  .main-nav .navbar {
+    width: auto;
+  }
+  body{
+    font-size: 12px;
+  }
+  .main-nav .nav-link.nav-post{
+    width: min-content;
+  }
+  .container-fluid{
+    margin-left: 70px;
+  }
+  .nav-item{
+    margin-left: -10px;
+  }
+}
+@media (min-width: 1065px) and (max-width: 1092px){
+  .navbar-image{
+    height: 40px;
+    width: 110px;
+  }
+  .main-nav .navbar {
+    width: auto;
+  }
+  body{
+    font-size: 12px;
+  }
+  .main-nav .nav-link.nav-post{
+    width: min-content;
+  }
+  .container-fluid{
+    margin-left: 70px;
+  }
+}
+@media (min-width: 1093px) and (max-width: 1136px){
+  .navbar-image{
+    height: 40px;
+    width: 120px;
+  }
+  .main-nav .navbar {
+    width: auto;
+  }
+  body{
+    font-size: 13px;
+  }
+  .main-nav .nav-link.nav-post{
+    width: min-content;
+  }
+  .container-fluid{
+    margin-left: 70px;
+  }
+}
+@media (min-width: 1137px) and (max-width: 1260px){
+  .navbar-image{
+    height: 40px;
+    width: 145px;
+  }
+  .main-nav .navbar {
+    width: auto;
+  }
+  body{
+    font-size: 13px;
+  }
+  .main-nav .nav-link.nav-post{
+    width: min-content;
+  }
+  .container-fluid{
+    margin-left: 55px;
+  }
+}
+@media (min-width: 310px) and (max-width: 430px){
+  .navbar-image{
+    height: 40px;
+    width: 100px;
+  }
+  .container-fluid{
+    margin-left: 15px;
+  }
+  .navbar-toggler{
+    margin-right: 18px;
+    background: beige;
+  }
+}
+@media (min-width: 431px) and (max-width: 991px){
+  .navbar-image{
+    height: 40px;
+    width: 140px;
+  }
+  .container-fluid{
+    margin-left: 35px;
+  }
+  .navbar-toggler{
+    margin-right: 38px;
+    background: beige;
+  }
+}
